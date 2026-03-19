@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir -la *.zip)",
+      "Bash(python3:*)",
+      "Bash(ls ~/Downloads/*.zip)",
+      "Bash(done)",
+      "Bash(__NEW_LINE_9ab40b63b03c76ce__ echo \"=== vibe-kanban ===\")",
+      "Bash(__NEW_LINE_e2e17bd94011427e__ echo \"=== nano-banana-skills ===\")",
+      "Bash(__NEW_LINE_62eb2cb1a3aea617__ echo \"=== ui-ux-pro-max ===\")",
+      "Bash(__NEW_LINE_83187b6120d450d9__ echo \"=== CLI-Anything ===\")",
+      "Bash(__NEW_LINE_07352affd27d954b__ echo \"=== claude-code-templates \\(top level\\) ===\")",
+      "Bash(__NEW_LINE_ce4ba6eb3e9a02db__ echo \"\")",
+      "Bash(__NEW_LINE_13768244b03b9376__ echo \"\")",
+      "Read(//c/Users/hr/.claude/**)",
+      "Bash(cat ~/.claude/plugins/*.json)",
+      "Bash(for f in ~/Downloads/extracted_skills/nano-banana-skills-main/nano-banana-skills-main/skills/*/SKILL.md)",
+      "Bash(do)",
+      "Bash(echo \"=== $f ===\")",
+      "Read(//c/Users/hr/OneDrive/Documents/Dr Usman Website/**)",
+      "Read(//c/Users/hr/Downloads/**)",
+      "Bash(unzip -o claude-skills-main.zip -d extracted_skills/claude-skills-main)",
+      "Bash(unzip -o CostReduction-main.zip -d extracted_skills/CostReduction-main)",
+      "Bash(unzip -o n8n-skills-main.zip -d extracted_skills/n8n-skills-main)",
+      "Bash(unzip -o claude-skill-prompt-architect-main.zip -d extracted_skills/claude-skill-prompt-architect-main)",
+      "Bash(unzip -o skills-main.zip -d extracted_skills/skills-main)"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Python Static Server",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server"],
+      "port": 8080,
+      "autoPort": true
+    },
+    {
+      "name": "npx serve",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "."],
+      "port": 3000,
+      "autoPort": true
+    },
+    {
+      "name": "dr-usman-dev",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "dr-usman-next\\dev.bat"],
+      "port": 4321,
+      "autoPort": true
+    }
+  ]
+}

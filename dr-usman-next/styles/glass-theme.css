@@ -1,0 +1,206 @@
+/* ═══════════════════════════════════════════════════════════
+   DR. USMAN LIAQAT — GLASSMORPHISM DESIGN SYSTEM
+   All colors reference existing CSS variables.
+   Glass achieved via blur, transparency & layered shadows only.
+═══════════════════════════════════════════════════════════ */
+
+/* ── Base glass surface ─────────────────────────────────── */
+.glass-surface {
+  background: color-mix(in srgb, var(--background) 18%, transparent);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
+  box-shadow:
+    0 8px 32px color-mix(in srgb, #000 12%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #fff 18%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, #000 6%, transparent);
+}
+
+/* ── Glass card ─────────────────────────────────────────── */
+.glass-card {
+  background: color-mix(in srgb, var(--background) 22%, transparent);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
+  border-radius: 16px;
+  box-shadow:
+    0 16px 48px color-mix(in srgb, #000 14%, transparent),
+    0 4px 16px color-mix(in srgb, var(--primary) 8%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #fff 22%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, #000 5%, transparent);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, #fff 12%, transparent) 0%,
+    color-mix(in srgb, #fff 3%, transparent) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.glass-card:hover {
+  box-shadow:
+    0 24px 64px color-mix(in srgb, #000 18%, transparent),
+    0 8px 24px color-mix(in srgb, var(--primary) 14%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #fff 28%, transparent);
+  transform: translateY(-2px);
+}
+
+/* ── Glass button ───────────────────────────────────────── */
+.glass-button {
+  background: color-mix(in srgb, var(--primary) 20%, transparent);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
+  box-shadow:
+    0 4px 16px color-mix(in srgb, var(--primary) 18%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #fff 20%, transparent);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, #fff 15%, transparent) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.glass-button:hover::before {
+  opacity: 1;
+}
+
+.glass-button:hover {
+  background: color-mix(in srgb, var(--primary) 30%, transparent);
+  box-shadow:
+    0 8px 24px color-mix(in srgb, var(--primary) 25%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #fff 25%, transparent);
+  transform: translateY(-1px);
+}
+
+/* ── Glass input ────────────────────────────────────────── */
+.glass-input {
+  background: color-mix(in srgb, var(--background) 30%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
+  box-shadow:
+    inset 0 2px 8px color-mix(in srgb, #000 8%, transparent),
+    0 1px 0 color-mix(in srgb, #fff 15%, transparent);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-input:focus {
+  border-color: color-mix(in srgb, var(--primary) 55%, transparent);
+  box-shadow:
+    inset 0 2px 8px color-mix(in srgb, #000 8%, transparent),
+    0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent),
+    0 1px 0 color-mix(in srgb, #fff 15%, transparent);
+  outline: none;
+}
+
+/* ── Glass navbar ───────────────────────────────────────── */
+.glass-navbar {
+  background: color-mix(in srgb, #060604 80%, transparent);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid color-mix(in srgb, #C9A96E 22%, transparent);
+  box-shadow:
+    0 4px 24px color-mix(in srgb, #000 40%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, #C9A96E 14%, transparent);
+}
+
+/* ── Glass modal ────────────────────────────────────────── */
+.glass-modal {
+  background: color-mix(in srgb, var(--background) 85%, transparent);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
+  border-radius: 20px;
+  box-shadow:
+    0 32px 80px color-mix(in srgb, #000 28%, transparent),
+    0 0 0 1px color-mix(in srgb, #fff 8%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #fff 22%, transparent);
+}
+
+/* ── Dark glass (for dark sections like hero) ───────────── */
+.glass-dark {
+  background: color-mix(in srgb, #060604 30%, transparent);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid color-mix(in srgb, #C9A96E 22%, transparent);
+  box-shadow:
+    0 8px 32px color-mix(in srgb, #000 50%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #C9A96E 16%, transparent);
+}
+
+/* ── Glass panel (section wrapper) ─────────────────────── */
+.glass-panel {
+  background: color-mix(in srgb, var(--background) 60%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+}
+
+/* ── Light reflection shimmer ───────────────────────────── */
+.glass-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    color-mix(in srgb, #fff 8%, transparent) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: glass-sweep 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes glass-sweep {
+  0%, 100% { left: -75%; opacity: 0; }
+  10% { opacity: 1; }
+  50% { left: 125%; opacity: 1; }
+  60% { opacity: 0; }
+}
+
+/* ── Glow edge ──────────────────────────────────────────── */
+.glass-glow {
+  box-shadow:
+    0 0 20px color-mix(in srgb, var(--primary) 15%, transparent),
+    0 0 60px color-mix(in srgb, var(--primary) 6%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #fff 18%, transparent);
+}
+
+.glass-glow-gold {
+  box-shadow:
+    0 0 20px color-mix(in srgb, #C9A96E 20%, transparent),
+    0 0 60px color-mix(in srgb, #C9A96E 8%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #fff 18%, transparent);
+}

@@ -800,7 +800,7 @@ ul { list-style:none; }
 
 .bna-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 12px;
   padding: 24px var(--container) 0;
   max-width: 1400px;
@@ -940,7 +940,10 @@ ul { list-style:none; }
 .bna-side-r { right: 10px; }
 
 /* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+  .bna-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+}
+@media (max-width: 700px) {
   .bna-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
 }
 @media (max-width: 480px) {

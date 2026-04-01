@@ -48,6 +48,9 @@ window.DR_USMAN_I18N = {
       calPickDate:'Select a date above',
       calPickTime:'— pick a time',
     },
+    bna: {
+      tag:'Transformations', title:'Before &amp; <em>After</em>', hint:'Drag to reveal',
+    },
     testi: {
       tag:'Patient Reviews',
       title:'Trusted by <em>hundreds</em><br>across the region',
@@ -125,6 +128,9 @@ window.DR_USMAN_I18N = {
       calClosed:'مغلق — لا مواعيد',
       calPickDate:'اختاري تاريخًا أعلاه',
       calPickTime:'— اختاري وقتًا',
+    },
+    bna: {
+      tag:'نتائج التحول', title:'قبل &amp; <em>بعد</em>', hint:'اسحبي للكشف',
     },
     testi: {
       tag:'آراء المرضى',

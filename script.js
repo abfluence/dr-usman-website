@@ -622,3 +622,57 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
     if (content) content.appendChild(btn);
   });
 })();
+
+/* ============================================================
+   BEFORE & AFTER SLIDERS
+============================================================ */
+(function initBnaSliders() {
+  document.querySelectorAll('.bna-card').forEach(function(card) {
+    var stage   = card.querySelector('.bna-stage');
+    var after   = card.querySelector('.bna-after');
+    var line    = card.querySelector('.bna-line');
+    var handle  = card.querySelector('.bna-handle');
+    var dragging = false;
+
+    function setPos(pct) {
+      pct = Math.max(2, Math.min(98, pct));
+      after.style.clipPath  = 'inset(0 0 0 ' + pct + '%)';
+      line.style.left       = pct + '%';
+      handle.style.left     = pct + '%';
+    }
+
+    function posFromClient(clientX) {
+      var rect = stage.getBoundingClientRect();
+      return ((clientX - rect.left) / rect.width) * 100;
+    }
+
+    /* Mouse */
+    stage.addEventListener('mousedown', function(e) {
+      dragging = true;
+      card.classList.add('dragging');
+      setPos(posFromClient(e.clientX));
+    });
+    window.addEventListener('mousemove', function(e) {
+      if (!dragging) return;
+      setPos(posFromClient(e.clientX));
+    });
+    window.addEventListener('mouseup', function() {
+      dragging = false;
+      card.classList.remove('dragging');
+    });
+
+    /* Touch */
+    stage.addEventListener('touchstart', function(e) {
+      dragging = true;
+      setPos(posFromClient(e.touches[0].clientX));
+    }, { passive: true });
+    stage.addEventListener('touchmove', function(e) {
+      if (!dragging) return;
+      setPos(posFromClient(e.touches[0].clientX));
+    }, { passive: true });
+    stage.addEventListener('touchend', function() { dragging = false; });
+
+    /* Init at 50% */
+    setPos(50);
+  });
+})();

@@ -52,6 +52,12 @@ window.DR_USMAN_I18N = {
       tag:'Transformations', title:'Before &amp; <em>After</em>', hint:'Drag to reveal',
       fAll:'All', fBody:'Body', fBreast:'Breast', fFace:'Face', fEyes:'Eyes', fNonSurg:'Non-Surgical',
     },
+    gallery: {
+      tag:'Personal Gallery',
+      title:'Behind The <em>Doctor</em>',
+      sub:'Move your cursor to explore moments from Dr. Usman\'s journey',
+      cta:'Move cursor to explore',
+    },
     testi: {
       tag:'Patient Reviews',
       title:'Trusted by <em>hundreds</em><br>across the region',
@@ -133,6 +139,12 @@ window.DR_USMAN_I18N = {
     bna: {
       tag:'نتائج التحول', title:'قبل &amp; <em>بعد</em>', hint:'اسحبي للكشف',
       fAll:'الكل', fBody:'الجسم', fBreast:'الثدي', fFace:'الوجه', fEyes:'العيون', fNonSurg:'غير جراحي',
+    },
+    gallery: {
+      tag:'معرض شخصي',
+      title:'خلف <em>الطبيب</em>',
+      sub:'حرّك المؤشر لاستعراض لحظات من مسيرة الدكتور عثمان',
+      cta:'حرّك المؤشر للاستعراض',
     },
     testi: {
       tag:'آراء المرضى',

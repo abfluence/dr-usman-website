@@ -724,3 +724,53 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
     setPos(50);
   });
 })();
+
+/* ============================================================
+   PERSONAL GALLERY — CURSOR TRAIL
+============================================================ */
+(function initGallery() {
+  var stage = document.getElementById('pgallery-stage');
+  if (!stage) return;
+  var imgs = Array.from(stage.querySelectorAll('.pgallery-img'));
+  if (!imgs.length) return;
+
+  var globalIndex = 0;
+  var maxVisible = 5;
+  var zCounter = 1;
+  var last = { x: 0, y: 0 };
+  var rots = [-6, -3, 0, 3, 6, -5, -2, 1, 4, -4];
+
+  function dist(x, y) { return Math.hypot(x - last.x, y - last.y); }
+
+  function activate(img, x, y) {
+    var rect = stage.getBoundingClientRect();
+    img.style.left = (x - rect.left) + 'px';
+    img.style.top  = (y - rect.top)  + 'px';
+    if (zCounter > 40) zCounter = 1;
+    img.style.zIndex = zCounter++;
+    img.style.setProperty('--rot', (rots[globalIndex % rots.length]) + 'deg');
+    img.dataset.status = 'active';
+    last = { x: x, y: y };
+    clearTimeout(img._t);
+    img._t = setTimeout(function() { img.dataset.status = 'inactive'; }, 1500);
+  }
+
+  function deactivate(img) {
+    clearTimeout(img._t);
+    img.dataset.status = 'inactive';
+  }
+
+  stage.addEventListener('mousemove', function(e) {
+    var threshold = Math.max(window.innerWidth / 30, 40);
+    if (dist(e.clientX, e.clientY) < threshold) return;
+    var lead = imgs[globalIndex % imgs.length];
+    var tailIdx = ((globalIndex - maxVisible) % imgs.length + imgs.length) % imgs.length;
+    activate(lead, e.clientX, e.clientY);
+    deactivate(imgs[tailIdx]);
+    globalIndex++;
+  });
+
+  stage.addEventListener('mouseleave', function() {
+    imgs.forEach(function(img) { deactivate(img); });
+  });
+})();

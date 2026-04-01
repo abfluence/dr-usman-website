@@ -571,3 +571,54 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
   var current = document.documentElement.getAttribute('data-lang') || 'en';
   try { applyLang(current); } catch(e) { console.warn('i18n init:', e); }
 })();
+
+/* ================================================================
+   PROCEDURE BOOK NOW BUTTONS
+================================================================ */
+(function initProcBookBtns() {
+  var selectMap = {
+    0: '4D Liposculpture (Hi-Def)',
+    1: 'Brazilian Butt Lift (BBL)',
+    2: 'Tummy Tuck (Abdominoplasty)',
+    3: 'Breast Augmentation',
+    4: 'Breast Lift',
+    5: 'Nose Correction',
+    6: 'Facelift',
+    7: 'Eyelid Surgery',
+    8: 'Botox & Fillers',
+    9: 'Face Contouring'
+  };
+
+  document.querySelectorAll('.pac-item').forEach(function(item) {
+    var idx = parseInt(item.dataset.procIdx, 10);
+    var procName = selectMap[idx];
+    if (!procName) return;
+
+    var btn = document.createElement('button');
+    btn.className = 'pac-book-btn';
+    btn.setAttribute('type', 'button');
+    btn.innerHTML =
+      '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>' +
+      '<span>Book Now</span>';
+
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      /* Pre-fill the procedure select */
+      var sel = document.getElementById('fprocedure');
+      if (sel) {
+        for (var i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].text.trim() === procName) {
+            sel.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      /* Smooth scroll to contact/booking section */
+      var contact = document.getElementById('contact');
+      if (contact) contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    var content = item.querySelector('.pac-content');
+    if (content) content.appendChild(btn);
+  });
+})();

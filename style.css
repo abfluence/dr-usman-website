@@ -1564,3 +1564,51 @@ body, p, .about-bio,
 .pac-content {
   z-index: 3;
 }
+
+/* ── Procedure Book Now — liquid glass button ── */
+.pac-book-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95) !important;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px) saturate(1.5);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.40),
+    inset -1px -1px 1px rgba(255, 255, 255, 0.15),
+    0 4px 18px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s 0.45s ease, transform 0.35s 0.45s ease,
+              background 0.2s ease, box-shadow 0.2s ease;
+  z-index: 4;
+  flex-shrink: 0;
+}
+.pac-item.active .pac-book-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+.pac-book-btn:hover {
+  background: rgba(255, 255, 255, 0.20);
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.55),
+    inset -1px -1px 1px rgba(255, 255, 255, 0.25),
+    0 6px 22px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+.pac-book-btn svg {
+  flex-shrink: 0;
+  opacity: 0.85;
+}

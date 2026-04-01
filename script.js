@@ -735,7 +735,7 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
   if (!imgs.length) return;
 
   var globalIndex = 0;
-  var maxVisible = 5;
+  var maxVisible = 7;
   var zCounter = 1;
   var last = { x: 0, y: 0 };
   var rots = [-6, -3, 0, 3, 6, -5, -2, 1, 4, -4];

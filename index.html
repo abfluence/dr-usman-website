@@ -657,16 +657,20 @@
         <form class="contact-form" id="contactForm">
           <div class="form-row">
             <div class="form-group">
+              <label for="fname" data-i18n="contact.lblName">Full Name</label>
               <input type="text" id="fname" placeholder="Full Name" data-i18n-placeholder="contact.phName" required>
             </div>
             <div class="form-group">
+              <label for="fphone" data-i18n="contact.lblPhone">Phone / WhatsApp</label>
               <input type="tel" id="fphone" placeholder="Phone / WhatsApp" data-i18n-placeholder="contact.phPhone">
             </div>
           </div>
           <div class="form-group">
+            <label for="femail" data-i18n="contact.lblEmail">Email Address</label>
             <input type="email" id="femail" placeholder="Email Address" data-i18n-placeholder="contact.phEmail">
           </div>
           <div class="form-group">
+            <label for="fprocedure" data-i18n="contact.lblProc">Procedure of Interest</label>
             <select id="fprocedure" data-i18n-select="contact.opts">
               <option value="" disabled selected data-i18n-placeholder="contact.phProc">Procedure of Interest</option>
               <option>4D Liposculpture (Hi-Def)</option>
@@ -689,6 +693,7 @@
             </select>
           </div>
           <div class="form-group">
+            <label for="fmessage" data-i18n="contact.lblMsg">Message</label>
             <textarea id="fmessage" placeholder="Message or questions (optional)" data-i18n-placeholder="contact.phMsg" rows="4"></textarea>
           </div>
           <input type="hidden" id="fdatetime" name="fdatetime">

@@ -1581,7 +1581,12 @@ body, p, .about-bio,
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.95) !important;
+  color: #c9a84c !important;
+  text-shadow:
+    0 1px 0 #7a5a1a,
+    0 2px 0 #5c4010,
+    0 3px 6px rgba(0, 0, 0, 0.5),
+    0 0 12px rgba(201, 168, 76, 0.4);
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(16px) saturate(1.5);
   -webkit-backdrop-filter: blur(16px) saturate(1.5);
@@ -1606,6 +1611,12 @@ body, p, .about-bio,
     inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.55),
     inset -1px -1px 1px rgba(255, 255, 255, 0.25),
     0 6px 22px rgba(0, 0, 0, 0.4);
+  color: #e0c068 !important;
+  text-shadow:
+    0 1px 0 #8a6820,
+    0 2px 0 #6a4e10,
+    0 3px 8px rgba(0, 0, 0, 0.55),
+    0 0 18px rgba(224, 192, 104, 0.55);
   transform: translateY(-1px);
 }
 .pac-book-btn svg {

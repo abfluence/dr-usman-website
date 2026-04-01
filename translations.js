@@ -10,7 +10,7 @@ window.DR_USMAN_I18N = {
     hero: {
       tag:'Plastic & Reconstructive Surgeon',
       w1:'Where', w2:'Excellence', w3:'Meets', w4:'Perfection.',
-      sub:'Board-certified expertise across Al Khobar &amp; Dammam<br>Kingdom of Saudi Arabia',
+      sub:'A trusted name in advanced aesthetic surgery across Khobar &amp; Dammam, Saudi Arabia',
       btnBook:'Book Consultation', btnView:'View Procedures',
       badge1:'MBBS', badge2:'MS Plastic Surgery', badge3:'9+ Years',
       stat1:'Years<br>Experience', stat2:'Procedures<br>Performed',
@@ -87,7 +87,7 @@ window.DR_USMAN_I18N = {
     hero: {
       tag:'جراح التجميل وإعادة البناء',
       w1:'حيث', w2:'التميز', w3:'يلتقي', w4:'الكمال.',
-      sub:'خبرة معتمدة في الخبر والدمام<br>المملكة العربية السعودية',
+      sub:'اسم موثوق في جراحة التجميل المتقدمة في الخبر والدمام، المملكة العربية السعودية',
       btnBook:'احجزي استشارتك', btnView:'استكشفي الإجراءات',
       badge1:'بكالوريوس طب', badge2:'ماجستير جراحة التجميل', badge3:'+9 سنوات',
       stat1:'سنوات<br>الخبرة', stat2:'إجراء<br>ناجح',

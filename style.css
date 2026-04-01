@@ -800,8 +800,8 @@ ul { list-style:none; }
 
 .bna-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
   padding: 24px var(--container) 0;
   max-width: 1400px;
   margin: 0 auto;
@@ -810,7 +810,7 @@ ul { list-style:none; }
 
 .bna-card {
   position: relative;
-  border-radius: 16px;
+  border-radius: 10px;
   overflow: hidden;
   aspect-ratio: 3 / 4;
   background: #0d0a06;
@@ -820,15 +820,15 @@ ul { list-style:none; }
 /* Liquid glass label — top center */
 .bna-label {
   position: absolute;
-  top: 16px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
   white-space: nowrap;
-  padding: 6px 20px;
+  padding: 4px 12px;
   border-radius: 999px;
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 8px;
   font-weight: 700;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -905,13 +905,13 @@ ul { list-style:none; }
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
-  width: 44px; height: 44px;
+  width: 30px; height: 30px;
   border-radius: 50%;
   background: rgba(255,255,255,0.92);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 3px;
   cursor: ew-resize;
   box-shadow: 0 2px 16px rgba(0,0,0,0.45);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -926,9 +926,9 @@ ul { list-style:none; }
 /* Before / After side labels */
 .bna-side {
   position: absolute;
-  bottom: 18px;
+  bottom: 10px;
   font-family: var(--font-sans);
-  font-size: 9px;
+  font-size: 7px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -936,12 +936,15 @@ ul { list-style:none; }
   pointer-events: none;
   z-index: 4;
 }
-.bna-side-l { left: 16px; }
-.bna-side-r { right: 16px; }
+.bna-side-l { left: 10px; }
+.bna-side-r { right: 10px; }
 
 /* Responsive */
-@media (max-width: 680px) {
-  .bna-grid { grid-template-columns: 1fr; gap: 16px; }
+@media (max-width: 900px) {
+  .bna-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+}
+@media (max-width: 480px) {
+  .bna-grid { grid-template-columns: 1fr; gap: 10px; }
 }
 
 /* --------------------------------

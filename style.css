@@ -741,11 +741,68 @@ ul { list-style:none; }
 -------------------------------- */
 .bna { padding: var(--section-gap) 0; }
 
+/* Filter tabs */
+.bna-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 32px var(--container) 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.bna-filter {
+  padding: 8px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.05);
+  color: var(--white-60);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.bna-filter:hover {
+  background: rgba(255,255,255,0.10);
+  color: var(--white);
+  border-color: rgba(255,255,255,0.25);
+}
+.bna-filter.active {
+  background: var(--gold-dim);
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 14px rgba(201,169,110,0.18);
+}
+/* Light mode filters */
+[data-theme="light"] .bna-filter {
+  border-color: rgba(0,0,0,0.12);
+  background: rgba(0,0,0,0.04);
+  color: rgba(13,13,13,0.5);
+}
+[data-theme="light"] .bna-filter:hover {
+  background: rgba(0,0,0,0.08);
+  color: rgba(13,13,13,0.85);
+}
+[data-theme="light"] .bna-filter.active {
+  background: rgba(201,169,110,0.12);
+  border-color: var(--gold);
+  color: var(--gold-dark);
+}
+
+/* Hidden card (filtered out) */
+.bna-card.bna-hidden { display: none; }
+
 .bna-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  padding: 40px var(--container) 0;
+  padding: 24px var(--container) 0;
   max-width: 1400px;
   margin: 0 auto;
   box-sizing: border-box;

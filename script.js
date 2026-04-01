@@ -624,6 +624,54 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
 })();
 
 /* ============================================================
+   BEFORE & AFTER CATEGORY FILTER (GSAP Flip)
+============================================================ */
+(function initBnaFilter() {
+  if (typeof Flip === 'undefined' || typeof gsap === 'undefined') return;
+  gsap.registerPlugin(Flip);
+
+  var filters = document.querySelectorAll('.bna-filter');
+  var cards   = document.querySelectorAll('.bna-card');
+
+  filters.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var filter = btn.dataset.filter;
+
+      /* Update active tab */
+      filters.forEach(function(f) { f.classList.remove('active'); });
+      btn.classList.add('active');
+
+      /* Capture layout state before DOM change */
+      var state = Flip.getState(cards);
+
+      /* Show / hide cards */
+      cards.forEach(function(card) {
+        var match = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('bna-hidden', !match);
+      });
+
+      /* Animate from captured state to new layout */
+      Flip.from(state, {
+        duration: 0.55,
+        scale: true,
+        ease: 'power2.inOut',
+        stagger: 0.04,
+        absolute: true,
+        onEnter: function(els) {
+          return gsap.fromTo(els,
+            { opacity: 0, scale: 0.85 },
+            { opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(1.3)' }
+          );
+        },
+        onLeave: function(els) {
+          return gsap.to(els, { opacity: 0, scale: 0.85, duration: 0.3 });
+        }
+      });
+    });
+  });
+})();
+
+/* ============================================================
    BEFORE & AFTER SLIDERS
 ============================================================ */
 (function initBnaSliders() {

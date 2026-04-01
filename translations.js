@@ -50,6 +50,7 @@ window.DR_USMAN_I18N = {
     },
     bna: {
       tag:'Transformations', title:'Before &amp; <em>After</em>', hint:'Drag to reveal',
+      fAll:'All', fBody:'Body', fBreast:'Breast', fFace:'Face', fEyes:'Eyes', fNonSurg:'Non-Surgical',
     },
     testi: {
       tag:'Patient Reviews',
@@ -131,6 +132,7 @@ window.DR_USMAN_I18N = {
     },
     bna: {
       tag:'نتائج التحول', title:'قبل &amp; <em>بعد</em>', hint:'اسحبي للكشف',
+      fAll:'الكل', fBody:'الجسم', fBreast:'الثدي', fFace:'الوجه', fEyes:'العيون', fNonSurg:'غير جراحي',
     },
     testi: {
       tag:'آراء المرضى',

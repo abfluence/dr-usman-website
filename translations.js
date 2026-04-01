@@ -24,7 +24,7 @@ window.DR_USMAN_I18N = {
       bio2:'His philosophy is simple: every patient deserves precision, dignity, and results that feel natural — not performed. From transformative body surgeries to delicate facial refinements, every procedure is approached as a work of art.',
       cred1t:'MBBS · MS Plastic Surgery', cred1s:'Board-Certified Credentials',
       cred2t:'3 Clinic Locations',        cred2s:'Khobar, Dammam & Riyadh',
-      cred3t:'International Reach',       cred3s:'KSA · UAE · Bahrain · UK · Pakistan',
+      cred3t:'International Reach',       cred3s:'KSA · UAE · Bahrain · UK · Pakistan · Qatar · China',
       cta:'Book a Private Consultation',
     },
     proc: {
@@ -102,7 +102,7 @@ window.DR_USMAN_I18N = {
       bio2:'فلسفته بسيطة: كل مريضة تستحق الدقة والكرامة ونتائج تبدو طبيعية لا مصطنعة. من عمليات الجسم التحويلية إلى تنعيمات الوجه الدقيقة، يُعامَل كل إجراء كعمل فني.',
       cred1t:'بكالوريوس الطب والجراحة · ماجستير جراحة التجميل', cred1s:'شهادات معتمدة',
       cred2t:'3 مواقع',                                          cred2s:'الخبر والدمام والرياض',
-      cred3t:'حضور دولي',                                        cred3s:'السعودية · الإمارات · البحرين · المملكة المتحدة · باكستان',
+      cred3t:'حضور دولي',                                        cred3s:'السعودية · الإمارات · البحرين · المملكة المتحدة · باكستان · قطر · الصين',
       cta:'احجزي استشارة خاصة',
     },
     proc: {

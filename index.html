@@ -751,18 +751,86 @@
      INSTAGRAM FEED
 ============================================================ -->
 <section class="igfeed" id="instagram">
-  <div class="container">
-    <div class="proc-header">
-      <p class="proc-tag" data-i18n="igfeed.tag">Instagram</p>
-      <h2 class="proc-title" data-i18n-html="igfeed.title">Follow The <em>Journey</em></h2>
-      <p class="proc-sub" data-i18n="igfeed.sub">Latest moments from Dr. Usman's practice</p>
+  <div class="ig-profile">
+
+    <!-- Profile Header -->
+    <div class="ig-header">
+      <a href="https://www.instagram.com/drusmanpk" target="_blank" rel="noopener noreferrer" class="ig-avatar-wrap">
+        <img src="assets/dr-about.png" alt="Dr. Usman" class="ig-avatar">
+      </a>
+      <div class="ig-meta">
+        <div class="ig-username-row">
+          <span class="ig-username">drusmanpk</span>
+          <svg class="ig-verified" viewBox="0 0 24 24" fill="none" aria-label="Verified"><circle cx="12" cy="12" r="10" fill="#C9A96E"/><path d="M7.5 12l3.5 3.5 6-7" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="ig-fullname">Dr. Usman Ali Liaqat</p>
+        <p class="ig-bio" data-i18n-html="igfeed.bio">Plastic &amp; Reconstructive Surgeon<br>Al Khobar · Dammam · Saudi Arabia</p>
+        <div class="ig-stats">
+          <div class="ig-stat"><span class="ig-stat-num">847</span><span class="ig-stat-lbl" data-i18n="igfeed.posts">posts</span></div>
+          <div class="ig-stat"><span class="ig-stat-num">25.2K</span><span class="ig-stat-lbl" data-i18n="igfeed.followers">followers</span></div>
+          <div class="ig-stat"><span class="ig-stat-num">842</span><span class="ig-stat-lbl" data-i18n="igfeed.following">following</span></div>
+        </div>
+      </div>
     </div>
-    <div class="igfeed-grid" id="igfeed-grid">
-      <!-- Skeleton cards injected here, then replaced by real posts -->
+
+    <!-- Story Highlights -->
+    <div class="ig-highlights-row">
+      <div class="ig-highlight">
+        <div class="ig-hl-ring">
+          <img src="assets/highlights/hl-tummy-tuck.jpg" alt="نتائج شد البطن" class="ig-hl-img">
+        </div>
+        <span class="ig-hl-label">نتائج شد البطن</span>
+      </div>
+      <div class="ig-highlight">
+        <div class="ig-hl-ring">
+          <img src="assets/highlights/hl-lip-filler.jpg" alt="فيلر شفايف" class="ig-hl-img">
+        </div>
+        <span class="ig-hl-label">فيلر شفايف</span>
+      </div>
+      <div class="ig-highlight">
+        <div class="ig-hl-ring">
+          <img src="assets/highlights/hl-face-contour.jpg" alt="تحديد الوجه" class="ig-hl-img">
+        </div>
+        <span class="ig-hl-label">تحديد الوجه</span>
+      </div>
+      <div class="ig-highlight">
+        <div class="ig-hl-ring">
+          <img src="assets/highlights/hl-buttock.jpg" alt="حقن المؤخرة" class="ig-hl-img">
+        </div>
+        <span class="ig-hl-label">حقن المؤخرة</span>
+      </div>
+      <div class="ig-highlight">
+        <div class="ig-hl-ring">
+          <img src="assets/highlights/hl-eyelid.jpg" alt="شد الجفون" class="ig-hl-img">
+        </div>
+        <span class="ig-hl-label">شد الجفون</span>
+      </div>
     </div>
+
+    <!-- Tab Bar -->
+    <div class="ig-tabs">
+      <button class="ig-tab ig-tab-active" data-tab="posts">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        <span data-i18n="igfeed.tabPosts">Posts</span>
+      </button>
+      <button class="ig-tab" data-tab="reels">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5,3 19,12 5,21"/></svg>
+        <span data-i18n="igfeed.tabReels">Reels</span>
+      </button>
+      <button class="ig-tab" data-tab="tagged">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span data-i18n="igfeed.tabTagged">Tagged</span>
+      </button>
+    </div>
+
+    <!-- Photo Grid -->
+    <div class="igfeed-grid" id="igfeed-grid"></div>
+
+    <!-- CTA -->
     <div class="igfeed-cta">
       <a href="https://www.instagram.com/drusmanpk" target="_blank" rel="noopener noreferrer" class="igfeed-btn" data-i18n="igfeed.cta">View Full Profile</a>
     </div>
+
   </div>
 </section>
 
@@ -956,7 +1024,7 @@
   <span data-i18n="wa">Book Now</span>
 </a>
 
-<script src="script.js?v=8"></script>
+<script src="script.js?v=9"></script>
 
 <!-- Liquid Glass SVG Filter — DO NOT REMOVE -->
 <svg id="liquid-glass-filter" style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;" aria-hidden="true">

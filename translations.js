@@ -58,6 +58,12 @@ window.DR_USMAN_I18N = {
       sub:'Move your cursor to explore moments from Dr. Usman\'s journey',
       cta:'Move cursor to explore',
     },
+    igfeed: {
+      tag:'Instagram',
+      title:'Follow The <em>Journey</em>',
+      sub:'Latest moments from Dr. Usman\'s practice',
+      cta:'View Full Profile',
+    },
     testi: {
       tag:'Patient Reviews',
       title:'Trusted by <em>hundreds</em><br>across the region',
@@ -145,6 +151,12 @@ window.DR_USMAN_I18N = {
       title:'خلف <em>الطبيب</em>',
       sub:'حرّك المؤشر لاستعراض لحظات من مسيرة الدكتور عثمان',
       cta:'حرّك المؤشر للاستعراض',
+    },
+    igfeed: {
+      tag:'إنستغرام',
+      title:'تابع <em>المسيرة</em>',
+      sub:'أحدث اللحظات من عيادة الدكتور عثمان',
+      cta:'عرض الملف الكامل',
     },
     testi: {
       tag:'آراء المرضى',

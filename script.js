@@ -774,3 +774,121 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
     imgs.forEach(function(img) { deactivate(img); });
   });
 })();
+
+/* ============================================================
+   INSTAGRAM FEED
+   Fetches latest posts from the Express backend and renders
+   a 3-column grid with hover overlay + skeleton loading state.
+
+   Set IG_API_URL to your deployed backend URL once hosted.
+   During local dev the proxy in vite.config.js handles /api.
+============================================================ */
+(function initIgFeed() {
+  var grid = document.getElementById('igfeed-grid');
+  if (!grid) return;
+
+  // ── Config ────────────────────────────────────────────────
+  // Replace with your deployed backend URL, e.g.:
+  // 'https://dr-usman-api.railway.app/api/instagram'
+  // Leave as '/api/instagram' when running locally with proxy.
+  var IG_API_URL = '/api/instagram';
+
+  var SKELETON_COUNT = 12;
+
+  // ── Helpers ───────────────────────────────────────────────
+  function showSkeletons() {
+    grid.innerHTML = '';
+    for (var i = 0; i < SKELETON_COUNT; i++) {
+      var el = document.createElement('div');
+      el.className = 'igfeed-skeleton';
+      grid.appendChild(el);
+    }
+  }
+
+  function showError(msg) {
+    grid.innerHTML = '<div class="igfeed-error">' + msg +
+      ' <a id="igfeed-retry">Try again</a></div>';
+    var retry = document.getElementById('igfeed-retry');
+    if (retry) retry.addEventListener('click', loadFeed);
+  }
+
+  function formatDate(iso) {
+    return new Date(iso).toLocaleDateString('en-US', {
+      year: 'numeric', month: 'short', day: 'numeric'
+    });
+  }
+
+  function buildCard(post) {
+    var a = document.createElement('a');
+    a.className = 'igfeed-card';
+    a.href = post.permalink;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+
+    var img = document.createElement('img');
+    img.src = post.display_url;
+    img.alt = post.caption ? post.caption.slice(0, 60) : 'Dr. Usman';
+    img.loading = 'lazy';
+    a.appendChild(img);
+
+    // Hover overlay
+    var overlay = document.createElement('div');
+    overlay.className = 'igfeed-overlay';
+    overlay.innerHTML =
+      '<svg class="igfeed-overlay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">' +
+        '<rect x="2" y="2" width="20" height="20" rx="5"/>' +
+        '<circle cx="12" cy="12" r="4"/>' +
+        '<circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>' +
+      '</svg>' +
+      '<span class="igfeed-overlay-label">View on Instagram</span>' +
+      (post.caption ? '<p class="igfeed-overlay-caption">' +
+        post.caption.slice(0, 100).replace(/</g, '&lt;') +
+        (post.caption.length > 100 ? '…' : '') + '</p>' : '') +
+      '<span class="igfeed-overlay-date">' + formatDate(post.timestamp) + '</span>';
+    a.appendChild(overlay);
+
+    // Video badge
+    if (post.media_type === 'VIDEO') {
+      var badge = document.createElement('span');
+      badge.className = 'igfeed-video-badge';
+      badge.textContent = '▶ Video';
+      a.appendChild(badge);
+    }
+
+    return a;
+  }
+
+  // ── Main fetch ────────────────────────────────────────────
+  function loadFeed() {
+    showSkeletons();
+    fetch(IG_API_URL)
+      .then(function(r) {
+        if (!r.ok) return r.json().then(function(e) { return Promise.reject(e.error || 'API error'); });
+        return r.json();
+      })
+      .then(function(res) {
+        var posts = res.data || [];
+        if (!posts.length) { showError('No posts found.'); return; }
+        grid.innerHTML = '';
+        posts.forEach(function(post) { grid.appendChild(buildCard(post)); });
+      })
+      .catch(function(err) {
+        console.warn('Instagram feed error:', err);
+        showError('Could not load Instagram feed.');
+      });
+  }
+
+  // Only load when the section scrolls into view (saves requests)
+  if ('IntersectionObserver' in window) {
+    var section = document.getElementById('instagram');
+    var observer = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        observer.disconnect();
+        loadFeed();
+      }
+    }, { rootMargin: '200px' });
+    if (section) observer.observe(section);
+  } else {
+    loadFeed();
+  }
+})();

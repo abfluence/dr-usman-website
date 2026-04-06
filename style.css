@@ -964,11 +964,19 @@ ul { list-style:none; }
   align-items: flex-start;
 }
 
-/* Override ig-profile inside the flex layout */
-.igfeed-wrap .ig-profile {
+/* Centering column — takes remaining space, centres the card */
+.ig-profile-col {
   flex: 1;
   min-width: 0;
-  max-width: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Card stays at its natural max-width, centred inside the column */
+.igfeed-wrap .ig-profile {
+  width: 100%;
+  max-width: 480px;
   margin: 0;
 }
 
@@ -1081,7 +1089,8 @@ ul { list-style:none; }
   .flip-col { position: static; width: 100%; }
   .flip-gallery { width: 240px; height: 400px; }
   .fg-unite { background-size: 240px 400px; }
-  .igfeed-wrap .ig-profile { width: 100%; max-width: 480px; margin: 0 auto; }
+  .ig-profile-col { width: 100%; }
+  .igfeed-wrap .ig-profile { max-width: 480px; }
 }
 
 /* --------------------------------

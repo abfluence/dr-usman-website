@@ -726,53 +726,65 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
 })();
 
 /* ============================================================
-   PERSONAL GALLERY — CURSOR TRAIL
+   FLIP GALLERY
 ============================================================ */
-(function initGallery() {
-  var stage = document.getElementById('pgallery-stage');
-  if (!stage) return;
-  var imgs = Array.from(stage.querySelectorAll('.pgallery-img'));
-  if (!imgs.length) return;
+(function initFlipGallery() {
+  var gallery = document.getElementById('flip-gallery');
+  if (!gallery) return;
 
-  var globalIndex = 0;
-  var maxVisible = 7;
-  var zCounter = 1;
-  var last = { x: 0, y: 0 };
-  var rots = [-6, -3, 0, 3, 6, -5, -2, 1, 4, -4];
+  var images = [
+    { url: 'assets/dr-hero.png',            title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/dr-about.png',           title: 'Plastic Surgeon' },
+    { url: 'assets/proc-facelift.png',      title: 'Facelift' },
+    { url: 'assets/proc-rhinoplasty.png',   title: 'Rhinoplasty' },
+    { url: 'assets/proc-bbl.png',           title: 'Brazilian Butt Lift' }
+  ];
 
-  function dist(x, y) { return Math.hypot(x - last.x, y - last.y); }
+  var SPEED = 750;
+  var currentIndex = 0;
+  var unites = gallery.querySelectorAll('.fg-unite');
 
-  function activate(img, x, y) {
-    var rect = stage.getBoundingClientRect();
-    img.style.left = (x - rect.left) + 'px';
-    img.style.top  = (y - rect.top)  + 'px';
-    if (zCounter > 40) zCounter = 1;
-    img.style.zIndex = zCounter++;
-    img.style.setProperty('--rot', (rots[globalIndex % rots.length]) + 'deg');
-    img.dataset.status = 'active';
-    last = { x: x, y: y };
-    clearTimeout(img._t);
-    img._t = setTimeout(function() { img.dataset.status = 'inactive'; }, 1500);
+  var flipTop    = [{ transform:'rotateX(0)' },       { transform:'rotateX(-90deg)' }, { transform:'rotateX(-90deg)' }];
+  var flipBot    = [{ transform:'rotateX(90deg)' },   { transform:'rotateX(90deg)' },  { transform:'rotateX(0)' }];
+  var flipTopRev = [{ transform:'rotateX(-90deg)' },  { transform:'rotateX(-90deg)' }, { transform:'rotateX(0)' }];
+  var flipBotRev = [{ transform:'rotateX(0)' },       { transform:'rotateX(90deg)' },  { transform:'rotateX(90deg)' }];
+  var timing = { duration: SPEED, iterations: 1 };
+
+  function setImage(el) {
+    el.style.backgroundImage = 'url("' + images[currentIndex].url + '")';
   }
 
-  function deactivate(img) {
-    clearTimeout(img._t);
-    img.dataset.status = 'inactive';
+  function showTitle() {
+    gallery.setAttribute('data-title', images[currentIndex].title);
+    gallery.style.setProperty('--title-opacity', 1);
+    gallery.style.setProperty('--title-y', '0');
   }
 
-  stage.addEventListener('mousemove', function(e) {
-    var threshold = Math.max(window.innerWidth / 30, 40);
-    if (dist(e.clientX, e.clientY) < threshold) return;
-    var lead = imgs[globalIndex % imgs.length];
-    var tailIdx = ((globalIndex - maxVisible) % imgs.length + imgs.length) % imgs.length;
-    activate(lead, e.clientX, e.clientY);
-    deactivate(imgs[tailIdx]);
-    globalIndex++;
-  });
+  // Init
+  unites.forEach(setImage);
+  showTitle();
 
-  stage.addEventListener('mouseleave', function() {
-    imgs.forEach(function(img) { deactivate(img); });
-  });
+  function navigate(inc) {
+    var reverse = inc < 0;
+    currentIndex = (currentIndex + inc + images.length) % images.length;
+
+    gallery.querySelector('.fg-overlay-top').animate(reverse ? flipTopRev : flipTop, timing);
+    gallery.querySelector('.fg-overlay-bottom').animate(reverse ? flipBotRev : flipBot, timing);
+
+    gallery.style.setProperty('--title-opacity', 0);
+    gallery.style.setProperty('--title-y', '-1rem');
+    gallery.setAttribute('data-title', '');
+
+    unites.forEach(function(el, idx) {
+      var delayed = reverse ? (idx !== 1 && idx !== 2) : (idx === 1 || idx === 2);
+      setTimeout(function() { setImage(el); }, delayed ? SPEED - 200 : 0);
+    });
+
+    setTimeout(showTitle, SPEED * 0.5);
+  }
+
+  document.getElementById('flip-prev').addEventListener('click', function() { navigate(-1); });
+  document.getElementById('flip-next').addEventListener('click', function() { navigate(1); });
 })();
 
 /* ============================================================

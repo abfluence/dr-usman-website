@@ -951,69 +951,142 @@ ul { list-style:none; }
 }
 
 /* --------------------------------
-   PERSONAL GALLERY
+   INSTAGRAM + FLIP GALLERY
 -------------------------------- */
-.pgallery { padding: var(--section-py) 0 0; }
+.igfeed {
+  padding: var(--section-py) 0;
+}
 
-.pgallery-stage {
+/* Two-column wrapper */
+.igfeed-wrap {
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
+}
+
+/* Override ig-profile inside the flex layout */
+.igfeed-wrap .ig-profile {
+  flex: 1;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+}
+
+/* ── Flip Gallery Column ── */
+.flip-col {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 90px;
+}
+
+.flip-gallery-wrap {
   position: relative;
-  height: 560px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  padding: 8px;
+  padding-bottom: 48px;
+}
+
+.flip-gallery {
+  position: relative;
+  width: 280px;
+  height: 468px;
+  text-align: center;
+  perspective: 800px;
+}
+
+.fg-unite {
+  position: absolute;
+  width: 100%;
+  height: 50%;
   overflow: hidden;
-  cursor: none;
-  margin-top: 48px;
-  background: linear-gradient(180deg, transparent 0%, rgba(201,169,110,0.04) 50%, transparent 100%);
+  background-size: 280px 468px;
+  background-repeat: no-repeat;
 }
 
-.pgallery-img {
-  position: absolute;
-  width: 160px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 14px;
-  transform: translate(-50%, -50%) scale(0) rotate(var(--rot, 0deg));
-  opacity: 0;
-  pointer-events: none;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.55);
-  border: 1px solid rgba(201,169,110,0.18);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-.pgallery-img[data-status="active"] {
-  transform: translate(-50%, -50%) scale(1) rotate(var(--rot, 0deg));
-  opacity: 1;
-  transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease;
-}
-.pgallery-img[data-status="inactive"] {
-  transform: translate(-50%, -50%) scale(0.85) rotate(var(--rot, 0deg));
-  opacity: 0;
-  transition: transform 0.4s ease, opacity 1.2s ease;
+.fg-top,
+.fg-overlay-top {
+  top: 0;
+  transform-origin: bottom;
+  background-position: top;
 }
 
-.pgallery-cta {
+.fg-bottom,
+.fg-overlay-bottom {
+  bottom: 0;
+  transform-origin: top;
+  background-position: bottom;
+}
+
+/* Black centre divider line */
+.flip-gallery::after {
+  content: '';
   position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
+  background: var(--black);
+  width: 100%;
+  height: 3px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+/* Image title */
+.flip-gallery::before {
+  content: attr(data-title);
+  color: var(--white-60);
+  font-size: 0.68rem;
   font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--white-30);
-  white-space: nowrap;
-  pointer-events: none;
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  width: 100%;
+  text-align: center;
+  opacity: var(--title-opacity, 0);
+  transform: translateY(var(--title-y, 0));
+  transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
 }
 
-@media (max-width: 680px) {
-  .pgallery-stage { height: 400px; }
-  .pgallery-img { width: 120px; height: 150px; }
+/* Prev / Next buttons */
+.flip-nav {
+  position: absolute;
+  bottom: 10px;
+  right: 8px;
+  display: flex;
+  gap: 4px;
+}
+
+.flip-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--white-60);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.flip-btn:hover { color: var(--gold); border-color: var(--gold); }
+.flip-btn svg { width: 14px; height: 14px; }
+
+@media (max-width: 960px) {
+  .igfeed-wrap { flex-direction: column; align-items: center; }
+  .flip-col { position: static; width: 100%; }
+  .flip-gallery { width: 240px; height: 400px; }
+  .fg-unite { background-size: 240px 400px; }
+  .igfeed-wrap .ig-profile { width: 100%; max-width: 480px; margin: 0 auto; }
 }
 
 /* --------------------------------
    INSTAGRAM PROFILE SECTION
 -------------------------------- */
-.igfeed {
-  padding: var(--section-py) 0;
-}
 
 /* Centered card container — Instagram web style */
 .ig-profile {

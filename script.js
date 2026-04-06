@@ -732,30 +732,30 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
   var gallery = document.getElementById('flip-gallery');
   if (!gallery) return;
 
-  var GD = 'https://drive.google.com/uc?export=view&id=';
   var images = [
-    { url: 'assets/dr-hero.png',                                  title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/dr-about.png',                                 title: 'Plastic Surgeon' },
-    { url: GD + '1aEywxgkrekvjLCpEFALm1-YvvwBpGgqe',             title: 'Dr. Usman' },
-    { url: GD + '1Awifg5yApOfpws7k5oFwU8oRYcYtQ7gC',             title: 'Dr. Usman' },
-    { url: GD + '1MO1v2rzRbMcLFDIUEjoesneAhf9uAznd',             title: 'Dr. Usman' },
-    { url: GD + '1rASbvl4ClcDRUB1lq3zvtB7tNrmOcDCA',             title: 'Dr. Usman' },
-    { url: GD + '1DlZQXvP2QJVIxwFnsq1I1PpiANvBv72X',             title: 'Dr. Usman' },
-    { url: GD + '1oj_S_pqATZwOFuUbZ_TPcvjlX-HC64Mc',             title: 'Dr. Usman' },
-    { url: GD + '1gRZJe8j9cXd3INzcoEwXNdVJ-8coE_lc',             title: 'Dr. Usman' },
-    { url: GD + '1b2eSDF2wg5C2E_8DBd1hDgg5a_nNf-ZB',             title: 'Dr. Usman' },
-    { url: GD + '128_wxuFRLVzw4nWaM9sSXJA9KeVebKqA',             title: 'Dr. Usman' },
-    { url: GD + '14sZ39QdQJGmaIy0wB7v28aplrK0Vr--U',             title: 'Dr. Usman' },
-    { url: GD + '1o_0ZbkF2V0oBLwyYCNSGGjZUzoHu7-94',             title: 'Dr. Usman' },
-    { url: GD + '1CvCemgLLRKj7hYj2_xMTqRZYkRzWhIjI',             title: 'Dr. Usman' },
-    { url: GD + '1-mvTrq1BMCqcqJ1B4fWuZmq27sZAhxe6',             title: 'Dr. Usman' },
-    { url: GD + '1-sEul5DDKDBNnXdS5-__Rac0n2JvXXyJ',             title: 'Dr. Usman' },
-    { url: GD + '1SM8myTlsmA9iZwUz3rYZs6LHe5TPiZ_-',             title: 'Dr. Usman' },
-    { url: GD + '1PlxPSGubFU5PlPwtTB8vvMwAitV3E8t7',             title: 'Dr. Usman' },
-    { url: GD + '1aqaXeLoIGN9_bNDxyBO1YN53qxilhAtF',             title: 'Dr. Usman' },
-    { url: GD + '1inaVRq5gdLKC6kVOG2Jsv7L7bK0o3EIk',             title: 'Dr. Usman' },
-    { url: GD + '1U6FazsxDlMD7iKhlcLI3Ew5I4gSw6r37',             title: 'Dr. Usman' },
-    { url: GD + '1qEYXAne4dcXKXZLA7OvNXGnC4hI9pyp4',             title: 'Dr. Usman' }
+    { url: 'assets/gallery/dr-01.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-02.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-03.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-04.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-05.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-06.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-07.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-08.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-09.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-10.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-11.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-12.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-13.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-14.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-15.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-16.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-17.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-18.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-19.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-20.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-21.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-22.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: 'assets/gallery/dr-23.jpg', title: 'Dr. Usman Ali Liaqat' }
   ];
 
   var SPEED = 750;

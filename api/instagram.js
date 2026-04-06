@@ -36,14 +36,17 @@ export default async function handler(req, res) {
       return res.status(response.status).json({ error: json?.error?.message || 'Instagram API error' });
     }
 
-    const data = (json.data || []).map(post => ({
-      id: post.id,
-      media_type: post.media_type,
-      display_url: post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url,
-      permalink: post.permalink,
-      caption: post.caption || '',
-      timestamp: post.timestamp,
-    }));
+    const data = (json.data || []).map(post => {
+      const rawUrl = post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url;
+      return {
+        id: post.id,
+        media_type: post.media_type,
+        display_url: rawUrl ? '/api/ig-image?url=' + encodeURIComponent(rawUrl) : '',
+        permalink: post.permalink,
+        caption: post.caption || '',
+        timestamp: post.timestamp,
+      };
+    });
 
     cache = { data, timestamp: Date.now() };
     res.json({ source: 'api', data });

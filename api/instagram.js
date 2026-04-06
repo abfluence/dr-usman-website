@@ -27,7 +27,7 @@ export default async function handler(req, res) {
 
   try {
     const fields = 'id,media_url,thumbnail_url,permalink,caption,timestamp,media_type';
-    const url = `https://graph.facebook.com/v22.0/${userId}/media?fields=${fields}&limit=12&access_token=${token}`;
+    const url = `https://graph.facebook.com/v22.0/${userId}/media?fields=${fields}&limit=6&access_token=${token}`;
 
     const response = await fetch(url);
     const json = await response.json();

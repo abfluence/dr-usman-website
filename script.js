@@ -823,7 +823,7 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
   // Leave as '/api/instagram' when running locally with proxy.
   var IG_API_URL = '/api/instagram';
 
-  var SKELETON_COUNT = 12;
+  var SKELETON_COUNT = 6;
 
   // ── Helpers ───────────────────────────────────────────────
   function showSkeletons() {

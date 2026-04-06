@@ -961,7 +961,7 @@ ul { list-style:none; }
 .igfeed-wrap {
   display: flex;
   gap: 36px;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 /* Centering column — takes remaining space, centres the card */
@@ -995,12 +995,14 @@ ul { list-style:none; }
   border: 1px solid var(--border);
   padding: 8px;
   padding-bottom: 48px;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .flip-gallery {
   position: relative;
   width: 280px;
-  height: 468px;
+  height: calc(100% - 58px);
   text-align: center;
   perspective: 800px;
 }
@@ -1010,7 +1012,7 @@ ul { list-style:none; }
   width: 100%;
   height: 50%;
   overflow: hidden;
-  background-size: 280px 468px;
+  background-size: 100% 200%;
   background-repeat: no-repeat;
 }
 

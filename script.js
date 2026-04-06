@@ -755,10 +755,7 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
     { url: GD + '1aqaXeLoIGN9_bNDxyBO1YN53qxilhAtF',             title: 'Dr. Usman' },
     { url: GD + '1inaVRq5gdLKC6kVOG2Jsv7L7bK0o3EIk',             title: 'Dr. Usman' },
     { url: GD + '1U6FazsxDlMD7iKhlcLI3Ew5I4gSw6r37',             title: 'Dr. Usman' },
-    { url: GD + '1qEYXAne4dcXKXZLA7OvNXGnC4hI9pyp4',             title: 'Dr. Usman' },
-    { url: 'assets/proc-facelift.png',                            title: 'Facelift' },
-    { url: 'assets/proc-rhinoplasty.png',                         title: 'Rhinoplasty' },
-    { url: 'assets/proc-bbl.png',                                 title: 'Brazilian Butt Lift' }
+    { url: GD + '1qEYXAne4dcXKXZLA7OvNXGnC4hI9pyp4',             title: 'Dr. Usman' }
   ];
 
   var SPEED = 750;

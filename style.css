@@ -1019,8 +1019,8 @@ ul { list-style:none; }
 .ig-profile {
   max-width: 480px;
   margin: 0 auto;
-  background: #0d0d0d;
-  border: 1px solid rgba(255,255,255,0.07);
+  background: var(--black);
+  border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -1048,7 +1048,7 @@ ul { list-style:none; }
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  border: 2.5px solid #0d0d0d;
+  border: 2.5px solid var(--black);
   display: block;
 }
 
@@ -1109,7 +1109,7 @@ ul { list-style:none; }
 
 .ig-stat-lbl {
   font-size: 0.65rem;
-  color: rgba(248,246,240,0.45);
+  color: var(--white-60);
   text-transform: lowercase;
 }
 
@@ -1120,7 +1120,7 @@ ul { list-style:none; }
   padding: 14px 20px 18px;
   overflow-x: auto;
   scrollbar-width: none;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid var(--border);
 }
 .ig-highlights-row::-webkit-scrollbar { display: none; }
 
@@ -1139,6 +1139,7 @@ ul { list-style:none; }
   border-radius: 50%;
   padding: 2.5px;
   background: var(--gold-grad);
+  overflow: hidden;
 }
 
 .ig-hl-img {
@@ -1146,13 +1147,13 @@ ul { list-style:none; }
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  border: 2.5px solid #0d0d0d;
   display: block;
+  transform: scale(1.38);
 }
 
 .ig-hl-label {
   font-size: 0.6rem;
-  color: rgba(248,246,240,0.55);
+  color: var(--white-60);
   text-align: center;
   line-height: 1.35;
   font-family: var(--font-arabic);
@@ -1164,7 +1165,7 @@ ul { list-style:none; }
 /* ── Tab Bar ── */
 .ig-tabs {
   display: flex;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid var(--border);
 }
 
 .ig-tab {
@@ -1177,7 +1178,7 @@ ul { list-style:none; }
   background: none;
   border: none;
   border-top: 2px solid transparent;
-  color: rgba(248,246,240,0.28);
+  color: var(--white-30);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -1209,7 +1210,7 @@ ul { list-style:none; }
 }
 .igfeed-skeleton {
   aspect-ratio: 1 / 1;
-  background: linear-gradient(90deg, #151515 25%, #1f1f1f 50%, #151515 75%);
+  background: linear-gradient(90deg, var(--black-3) 25%, var(--black-4) 50%, var(--black-3) 75%);
   background-size: 600px 100%;
   animation: igshimmer 1.4s infinite;
 }
@@ -1220,7 +1221,7 @@ ul { list-style:none; }
   aspect-ratio: 1 / 1;
   overflow: hidden;
   display: block;
-  background: #111;
+  background: var(--black-3);
   text-decoration: none;
 }
 .igfeed-card img {
@@ -1293,7 +1294,7 @@ ul { list-style:none; }
   grid-column: 1 / -1;
   text-align: center;
   padding: 40px 0;
-  color: rgba(255,255,255,0.35);
+  color: var(--white-30);
   font-size: 0.85rem;
 }
 .igfeed-error a {
@@ -1331,6 +1332,10 @@ ul { list-style:none; }
   .ig-hl-ring { width: 56px; height: 56px; }
   .ig-hl-label { max-width: 56px; }
 }
+
+/* Light mode — Instagram section overrides */
+[data-theme="light"] .ig-tab-active { color: var(--gold) !important; border-top-color: var(--gold) !important; }
+[data-theme="light"] .igfeed-overlay-label { color: #fff; }
 
 /* --------------------------------
    TESTIMONIALS

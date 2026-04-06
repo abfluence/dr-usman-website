@@ -1,0 +1,6 @@
+Options -Indexes
+RewriteEngine On
+
+# Route extensionless API calls to PHP files
+RewriteRule ^api/instagram$ /api/instagram.php [L,QSA]
+RewriteRule ^api/ig-image$  /api/ig-image.php  [L,QSA]

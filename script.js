@@ -680,6 +680,8 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
     var after   = card.querySelector('.bna-after');
     var line    = card.querySelector('.bna-line');
     var handle  = card.querySelector('.bna-handle');
+    /* Static result cards have no slider parts — skip them */
+    if (!stage || !after || !line || !handle) return;
     var dragging = false;
 
     function setPos(pct) {

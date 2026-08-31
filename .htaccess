@@ -4,3 +4,15 @@ RewriteEngine On
 # Route extensionless API calls to PHP files
 RewriteRule ^api/instagram$ /api/instagram.php [L,QSA]
 RewriteRule ^api/ig-image$  /api/ig-image.php  [L,QSA]
+
+# Not part of the public site — present in the repo but must never be served.
+# Git deploy copies the whole repo into public_html, so block them explicitly.
+RedirectMatch 404 ^/dr-usman-next(/.*)?$
+RedirectMatch 404 ^/\.claude(/.*)?$
+RedirectMatch 404 ^/vercel\.json$
+RedirectMatch 404 ^/api/.*\.js$
+
+# Never serve the credentials file, whatever the server config
+<Files "config.local.php">
+  Require all denied
+</Files>

@@ -1,3 +1,6 @@
 
 # Instagram harvest staging — raw scrape output, expiring CDN manifests
 assets/ig-source/
+
+# Server-only credentials (Instagram Graph API token)
+api/config.local.php

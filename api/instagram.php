@@ -9,10 +9,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     exit;
 }
 
-// Credentials — set these via .htaccess SetEnv, or replace the empty strings directly.
-// PHP files are server-side and never exposed to browsers.
-$token  = getenv('LONG_LIVED_TOKEN') ?: '';
-$userId = getenv('IG_USER_ID')       ?: '';
+// Credentials come from api/config.local.php (untracked, server-only) or the
+// environment. Never hard-code them here — this file is public on GitHub.
+$cfg = __DIR__ . '/config.local.php';
+if (is_readable($cfg)) { require_once $cfg; }
+
+$token  = getenv('LONG_LIVED_TOKEN') ?: (defined('LONG_LIVED_TOKEN') ? LONG_LIVED_TOKEN : '');
+$userId = getenv('IG_USER_ID')       ?: (defined('IG_USER_ID')       ? IG_USER_ID       : '');
 
 if (!$token || !$userId) {
     http_response_code(500);

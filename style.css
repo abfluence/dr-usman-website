@@ -59,6 +59,10 @@ body {
 }
 a { text-decoration:none; color:inherit; }
 img { max-width:100%; display:block; }
+/* <picture> wraps the responsive images (WebP + fallback). display:contents keeps it
+   out of the box tree so every existing rule still targets the <img> in its own parent
+   — percentage heights and object-fit behave exactly as they did before the wrap. */
+picture { display: contents; }
 ul { list-style:none; }
 
 /* --------------------------------
@@ -2351,4 +2355,62 @@ body, p, .about-bio,
   flex-shrink: 0;
   opacity: 0.85;
   color: #c9a84c;
+}
+
+/* ============================================================
+   REAL PATIENT MESSAGES — unedited screenshots from Instagram
+============================================================ */
+.trev-shots-wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px var(--container) 0;
+  box-sizing: border-box;
+}
+
+.trev-shots-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.75;
+  text-align: center;
+  margin: 0 0 18px;
+}
+
+.trev-shots {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(168px, 1fr);
+  gap: 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.trev-shot {
+  margin: 0;
+  /* Native screenshot ratio (1284x2282) — shown essentially uncropped */
+  aspect-ratio: 9 / 16;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0d0a06;
+  border: 1px solid rgba(201, 169, 110, 0.22);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+.trev-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media (max-width: 700px) {
+  .trev-shots { grid-auto-columns: minmax(150px, 1fr); }
+  .trev-shots-wrap { padding-top: 28px; }
 }

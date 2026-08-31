@@ -910,17 +910,27 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
       });
   }
 
-  // Only load when the section scrolls into view (saves requests)
-  if ('IntersectionObserver' in window) {
-    var section = document.getElementById('instagram');
+  // Load when the section scrolls into view (saves requests), but never
+  // depend on it alone: some environments never fire IntersectionObserver,
+  // which would leave the grid permanently, silently empty.
+  var started = false;
+  function startOnce() {
+    if (started) return;
+    started = true;
+    loadFeed();
+  }
+
+  var section = document.getElementById('instagram');
+  if ('IntersectionObserver' in window && section) {
     var observer = new IntersectionObserver(function(entries) {
       if (entries[0].isIntersecting) {
         observer.disconnect();
-        loadFeed();
+        startOnce();
       }
     }, { rootMargin: '200px' });
-    if (section) observer.observe(section);
+    observer.observe(section);
+    setTimeout(startOnce, 5000);   // safety net
   } else {
-    loadFeed();
+    startOnce();
   }
 })();

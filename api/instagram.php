@@ -38,17 +38,59 @@ if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < $cacheTtl) {
 $fields = 'id,media_url,thumbnail_url,permalink,caption,timestamp,media_type';
 $apiUrl = "https://graph.facebook.com/v22.0/{$userId}/media?fields={$fields}&limit=6&access_token={$token}";
 
-$ch = curl_init($apiUrl);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-$response = curl_exec($ch);
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-curl_close($ch);
+$response = false;
+$httpCode = 0;
+$transport = null;
+$curlErr   = null;
 
-if (!$response) {
+if (function_exists('curl_init')) {
+    $ch = curl_init($apiUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+    curl_setopt($ch, CURLOPT_USERAGENT, 'drusmanpk-site/1.0');
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if ($response === false) {
+        $curlErr = curl_errno($ch) . ': ' . curl_error($ch);
+    } else {
+        $transport = 'curl';
+    }
+    curl_close($ch);
+}
+
+// Some shared hosts block or misconfigure cURL. Fall back to a stream request.
+if ($response === false && ini_get('allow_url_fopen')) {
+    $ctx = stream_context_create(['http' => [
+        'method'  => 'GET',
+        'timeout' => 20,
+        'header'  => "User-Agent: drusmanpk-site/1.0\r\n",
+        'ignore_errors' => true,
+    ]]);
+    $response = @file_get_contents($apiUrl, false, $ctx);
+    if ($response !== false) {
+        $transport = 'stream';
+        if (isset($http_response_header[0]) &&
+            preg_match('{HTTP/\S+\s+(\d{3})}', $http_response_header[0], $m)) {
+            $httpCode = (int) $m[1];
+        } else {
+            $httpCode = 200;
+        }
+    }
+}
+
+if ($response === false) {
     http_response_code(502);
-    echo json_encode(['error' => 'Failed to reach Instagram API']);
+    // curl_error never contains the token; the URL is deliberately not echoed.
+    echo json_encode([
+        'error'          => 'Failed to reach Instagram API',
+        'curl_error'     => $curlErr,
+        'curl_available' => function_exists('curl_init'),
+        'allow_url_fopen'=> (bool) ini_get('allow_url_fopen'),
+        'openssl'        => extension_loaded('openssl'),
+    ]);
     exit;
 }
 

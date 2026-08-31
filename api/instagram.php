@@ -98,7 +98,17 @@ $json = json_decode($response, true);
 
 if ($httpCode !== 200 || isset($json['error'])) {
     http_response_code($httpCode ?: 500);
-    echo json_encode(['error' => $json['error']['message'] ?? 'Instagram API error']);
+    // NEVER echo Graph's raw message: Meta embeds the access token in some
+    // errors (e.g. "Malformed access token EAA..."), which would publish the
+    // credential on a public endpoint. Strip anything token-shaped.
+    $raw  = $json['error']['message'] ?? 'Instagram API error';
+    $safe = preg_replace('/EAA[A-Za-z0-9_\-]+/', '<token redacted>', $raw);
+    echo json_encode([
+        'error'    => $safe,
+        'type'     => $json['error']['type']    ?? null,
+        'code'     => $json['error']['code']    ?? null,
+        'subcode'  => $json['error']['error_subcode'] ?? null,
+    ]);
     exit;
 }
 

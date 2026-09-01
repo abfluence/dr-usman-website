@@ -20,7 +20,7 @@
   <!-- Lenis smooth scroll -->
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
 
-  <link rel="stylesheet" href="style.css?v=12"/>
+  <link rel="stylesheet" href="style.css?v=13"/>
   <!-- Prevent flash of wrong theme/lang -->
   <script>(function(){var t=localStorage.getItem('dr-usman-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');var l=localStorage.getItem('dr-usman-lang');var lang=l==='ar'?'ar':'en';document.documentElement.setAttribute('data-lang',lang);document.documentElement.setAttribute('dir',lang==='ar'?'rtl':'ltr');document.documentElement.setAttribute('lang',lang==='ar'?'ar':'en');})();</script>
   <script src="translations.js"></script>
@@ -995,6 +995,39 @@
 <!-- ============================================================
      CONTACT
 ============================================================ -->
+<!-- ============================================================
+     ONLINE CONSULTATION — paid booking
+     PAYMENT GATEWAY: replace the href on #payBtn with the Moyasar /
+     Tap checkout link once the merchant account is live. Everything
+     else on this section stays as-is.
+============================================================ -->
+<section class="pay" id="consultation">
+  <div class="container">
+    <div class="section-tag center-tag" data-i18n="pay.tag">Online Consultation</div>
+    <h2 class="section-title center-title" data-i18n-html="pay.title">Consult with <em>Dr. Usman</em><br>from anywhere.</h2>
+
+    <div class="pay-card">
+      <div class="pay-price">
+        <span class="pay-amount">200</span>
+        <span class="pay-cur" data-i18n="pay.cur">SAR</span>
+      </div>
+      <p class="pay-note" data-i18n="pay.note">Deducted from your procedure cost if you go ahead</p>
+
+      <ul class="pay-list">
+        <li data-i18n="pay.inc1">Private one-to-one video consultation with the surgeon</li>
+        <li data-i18n="pay.inc2">Personalised assessment of your case</li>
+        <li data-i18n="pay.inc3">Honest guidance on the options suited to you</li>
+        <li data-i18n="pay.inc4">A clear plan and cost estimate before you commit</li>
+      </ul>
+
+      <a href="https://wa.me/966504109169?text=Hello%20Dr.%20Usman%2C%20I%20would%20like%20to%20book%20an%20online%20consultation%20(200%20SAR)." target="_blank" rel="noopener noreferrer" class="pay-btn" id="payBtn" data-i18n="pay.cta">Book Online Consultation</a>
+
+      <p class="pay-refund" data-i18n="pay.refund">Consultation fees are non-refundable once booked.</p>
+      <p class="pay-methods" data-i18n="pay.methods">mada · Apple Pay · STC Pay · Visa · Mastercard</p>
+    </div>
+  </div>
+</section>
+
 <section class="contact" id="contact">
   <div class="container">
     <div class="contact-inner">
@@ -1185,7 +1218,7 @@
   <span data-i18n="wa">Book Now</span>
 </a>
 
-<script src="script.js?v=12"></script>
+<script src="script.js?v=13"></script>
 
 <!-- Liquid Glass SVG Filter — DO NOT REMOVE -->
 <svg id="liquid-glass-filter" style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;" aria-hidden="true">

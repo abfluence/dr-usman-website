@@ -452,17 +452,19 @@
           5:2 in the up–down tier — with the subject aligned in both frames.
        2. Save as assets/bna/<slug>-<n>-before.jpg and -after.jpg.
        3. Append {"before":"…","after":"…"} to that card's data-results.
-       A card with 2+ results shows a ‹ 1 / n › switcher automatically. -->
+       A card with 2+ results shows a ‹ 1 / n › switcher automatically.
+       Image URLs carry ?v=N. If you REPLACE an existing file under the same
+       name, bump its ?v= — browsers cache images and keep the old one. -->
   <!-- Left–right sliders: the clinic presented these side by side -->
   <div class="bna-tier" data-tier="h">
     <p class="bna-tier-label" data-i18n="bna.tierH">Drag left and right</p>
     <div class="bna-grid bna-grid-h">
       <!-- Real patient result — Arms Liposculpture (source: instagram.com/p/DaS295YiHVs) -->
-      <div class="bna-card bna-real" data-category="body" data-results='[{"before":"assets/bna/arms-before.jpg","after":"assets/bna/arms-after.jpg"}]'>
+      <div class="bna-card bna-real" data-category="body" data-results='[{"before":"assets/bna/arms-before.jpg?v=17","after":"assets/bna/arms-after.jpg?v=17"}]'>
         <div class="bna-label">Arms Liposculpture</div>
         <div class="bna-stage">
-          <img src="assets/bna/arms-before.jpg" class="bna-before" draggable="false" alt="Arms liposculpture — before">
-          <div class="bna-after"><img src="assets/bna/arms-after.jpg" draggable="false" alt="Arms liposculpture — after"></div>
+          <img src="assets/bna/arms-before.jpg?v=17" class="bna-before" draggable="false" alt="Arms liposculpture — before">
+          <div class="bna-after"><img src="assets/bna/arms-after.jpg?v=17" draggable="false" alt="Arms liposculpture — after"></div>
           <div class="bna-line"></div>
           <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <span class="bna-side bna-side-l">Before</span>
@@ -470,11 +472,11 @@
         </div>
       </div>
       <!-- Real patient result — Lip Filler (source: @drusmanpk "Lip Filler" highlight) -->
-      <div class="bna-card bna-real" data-category="non-surgical" data-results='[{"before":"assets/bna/lips-before.jpg","after":"assets/bna/lips-after.jpg"}]'>
+      <div class="bna-card bna-real" data-category="non-surgical" data-results='[{"before":"assets/bna/lips-before.jpg?v=17","after":"assets/bna/lips-after.jpg?v=17"}]'>
         <div class="bna-label">Lip Filler</div>
         <div class="bna-stage">
-          <img src="assets/bna/lips-before.jpg" class="bna-before" draggable="false" alt="Lip filler — before">
-          <div class="bna-after"><img src="assets/bna/lips-after.jpg" draggable="false" alt="Lip filler — after"></div>
+          <img src="assets/bna/lips-before.jpg?v=17" class="bna-before" draggable="false" alt="Lip filler — before">
+          <div class="bna-after"><img src="assets/bna/lips-after.jpg?v=17" draggable="false" alt="Lip filler — after"></div>
           <div class="bna-line"></div>
           <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <span class="bna-side bna-side-l">Before</span>
@@ -489,11 +491,11 @@
     <p class="bna-tier-label" data-i18n="bna.tierV">Drag up and down</p>
     <div class="bna-grid bna-grid-v">
       <!-- Real patient result — Upper Blepharoplasty (source: instagram.com/p/DSpE2vxCAIg) -->
-      <div class="bna-card bna-real bna-vertical" data-category="eyes" data-results='[{"before":"assets/bna/upperbleph-before.jpg","after":"assets/bna/upperbleph-after.jpg"}]'>
+      <div class="bna-card bna-real bna-vertical" data-category="eyes" data-results='[{"before":"assets/bna/upperbleph-before.jpg?v=17","after":"assets/bna/upperbleph-after.jpg?v=17"}]'>
         <div class="bna-label">Upper Blepharoplasty</div>
         <div class="bna-stage">
-          <img src="assets/bna/upperbleph-before.jpg" class="bna-before" draggable="false" alt="Upper blepharoplasty — before">
-          <div class="bna-after"><img src="assets/bna/upperbleph-after.jpg" draggable="false" alt="Upper blepharoplasty — after"></div>
+          <img src="assets/bna/upperbleph-before.jpg?v=17" class="bna-before" draggable="false" alt="Upper blepharoplasty — before">
+          <div class="bna-after"><img src="assets/bna/upperbleph-after.jpg?v=17" draggable="false" alt="Upper blepharoplasty — after"></div>
           <div class="bna-line"></div>
           <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <span class="bna-side bna-side-l">Before</span>
@@ -501,11 +503,11 @@
         </div>
       </div>
       <!-- Real patient result — Lower Blepharoplasty (source: instagram.com/p/DYWfGKaiOqI) -->
-      <div class="bna-card bna-real bna-vertical" data-category="eyes" data-results='[{"before":"assets/bna/lowerbleph-before.jpg","after":"assets/bna/lowerbleph-after.jpg"}]'>
+      <div class="bna-card bna-real bna-vertical" data-category="eyes" data-results='[{"before":"assets/bna/lowerbleph-before.jpg?v=17","after":"assets/bna/lowerbleph-after.jpg?v=17"}]'>
         <div class="bna-label">Lower Blepharoplasty</div>
         <div class="bna-stage">
-          <img src="assets/bna/lowerbleph-before.jpg" class="bna-before" draggable="false" alt="Lower blepharoplasty — before">
-          <div class="bna-after"><img src="assets/bna/lowerbleph-after.jpg" draggable="false" alt="Lower blepharoplasty — after"></div>
+          <img src="assets/bna/lowerbleph-before.jpg?v=17" class="bna-before" draggable="false" alt="Lower blepharoplasty — before">
+          <div class="bna-after"><img src="assets/bna/lowerbleph-after.jpg?v=17" draggable="false" alt="Lower blepharoplasty — after"></div>
           <div class="bna-line"></div>
           <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <span class="bna-side bna-side-l">Before</span>
@@ -513,11 +515,11 @@
         </div>
       </div>
       <!-- Real patient result — Double Chin Liposuction (source: @drusmanpk "Double Chin" highlight) -->
-      <div class="bna-card bna-real bna-vertical" data-category="face" data-results='[{"before":"assets/bna/doublechin-before.jpg","after":"assets/bna/doublechin-after.jpg"},{"before":"assets/bna/doublechin-2-before.jpg","after":"assets/bna/doublechin-2-after.jpg"},{"before":"assets/bna/doublechin-3-before.jpg","after":"assets/bna/doublechin-3-after.jpg"}]'>
+      <div class="bna-card bna-real bna-vertical" data-category="face" data-results='[{"before":"assets/bna/doublechin-before.jpg?v=17","after":"assets/bna/doublechin-after.jpg?v=17"},{"before":"assets/bna/doublechin-2-before.jpg?v=17","after":"assets/bna/doublechin-2-after.jpg?v=17"},{"before":"assets/bna/doublechin-3-before.jpg?v=17","after":"assets/bna/doublechin-3-after.jpg?v=17"}]'>
         <div class="bna-label">Double Chin Liposuction</div>
         <div class="bna-stage">
-          <img src="assets/bna/doublechin-before.jpg" class="bna-before" draggable="false" alt="Double chin liposuction — before">
-          <div class="bna-after"><img src="assets/bna/doublechin-after.jpg" draggable="false" alt="Double chin liposuction — after"></div>
+          <img src="assets/bna/doublechin-before.jpg?v=17" class="bna-before" draggable="false" alt="Double chin liposuction — before">
+          <div class="bna-after"><img src="assets/bna/doublechin-after.jpg?v=17" draggable="false" alt="Double chin liposuction — after"></div>
           <div class="bna-line"></div>
           <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <span class="bna-side bna-side-l">Before</span>

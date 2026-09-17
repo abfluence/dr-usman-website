@@ -20,7 +20,7 @@
   <!-- Lenis smooth scroll -->
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
 
-  <link rel="stylesheet" href="style.css?v=15"/>
+  <link rel="stylesheet" href="style.css?v=16"/>
   <!-- Prevent flash of wrong theme/lang -->
   <script>(function(){var t=localStorage.getItem('dr-usman-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');var l=localStorage.getItem('dr-usman-lang');var lang=l==='ar'?'ar':'en';document.documentElement.setAttribute('data-lang',lang);document.documentElement.setAttribute('dir',lang==='ar'?'rtl':'ltr');document.documentElement.setAttribute('lang',lang==='ar'?'ar':'en');})();</script>
   <script src="translations.js"></script>
@@ -447,12 +447,18 @@
     <button class="bna-filter"        data-filter="non-surgical" data-i18n="bna.fNonSurg">Non-Surgical</button>
   </div>
 
+    <!-- ADDING A RESULT to a procedure card:
+       1. Crop the pair to the card's shape — 19:11 in the left–right tier,
+          5:2 in the up–down tier — with the subject aligned in both frames.
+       2. Save as assets/bna/<slug>-<n>-before.jpg and -after.jpg.
+       3. Append {"before":"…","after":"…"} to that card's data-results.
+       A card with 2+ results shows a ‹ 1 / n › switcher automatically. -->
   <!-- Left–right sliders: the clinic presented these side by side -->
   <div class="bna-tier" data-tier="h">
     <p class="bna-tier-label" data-i18n="bna.tierH">Drag left and right</p>
     <div class="bna-grid bna-grid-h">
       <!-- Real patient result — Arms Liposculpture (source: instagram.com/p/DaS295YiHVs) -->
-      <div class="bna-card bna-real" data-category="body">
+      <div class="bna-card bna-real" data-category="body" data-results='[{"before":"assets/bna/arms-before.jpg","after":"assets/bna/arms-after.jpg"}]'>
         <div class="bna-label">Arms Liposculpture</div>
         <div class="bna-stage">
           <img src="assets/bna/arms-before.jpg" class="bna-before" draggable="false" alt="Arms liposculpture — before">
@@ -464,7 +470,7 @@
         </div>
       </div>
       <!-- Real patient result — Lip Filler (source: @drusmanpk "Lip Filler" highlight) -->
-      <div class="bna-card bna-real" data-category="non-surgical">
+      <div class="bna-card bna-real" data-category="non-surgical" data-results='[{"before":"assets/bna/lips-before.jpg","after":"assets/bna/lips-after.jpg"}]'>
         <div class="bna-label">Lip Filler</div>
         <div class="bna-stage">
           <img src="assets/bna/lips-before.jpg" class="bna-before" draggable="false" alt="Lip filler — before">
@@ -483,7 +489,7 @@
     <p class="bna-tier-label" data-i18n="bna.tierV">Drag up and down</p>
     <div class="bna-grid bna-grid-v">
       <!-- Real patient result — Upper Blepharoplasty (source: instagram.com/p/DSpE2vxCAIg) -->
-      <div class="bna-card bna-real bna-vertical" data-category="eyes">
+      <div class="bna-card bna-real bna-vertical" data-category="eyes" data-results='[{"before":"assets/bna/upperbleph-before.jpg","after":"assets/bna/upperbleph-after.jpg"}]'>
         <div class="bna-label">Upper Blepharoplasty</div>
         <div class="bna-stage">
           <img src="assets/bna/upperbleph-before.jpg" class="bna-before" draggable="false" alt="Upper blepharoplasty — before">
@@ -495,7 +501,7 @@
         </div>
       </div>
       <!-- Real patient result — Lower Blepharoplasty (source: instagram.com/p/DYWfGKaiOqI) -->
-      <div class="bna-card bna-real bna-vertical" data-category="eyes">
+      <div class="bna-card bna-real bna-vertical" data-category="eyes" data-results='[{"before":"assets/bna/lowerbleph-before.jpg","after":"assets/bna/lowerbleph-after.jpg"}]'>
         <div class="bna-label">Lower Blepharoplasty</div>
         <div class="bna-stage">
           <img src="assets/bna/lowerbleph-before.jpg" class="bna-before" draggable="false" alt="Lower blepharoplasty — before">
@@ -507,7 +513,7 @@
         </div>
       </div>
       <!-- Real patient result — Double Chin Liposuction (source: @drusmanpk "Double Chin" highlight) -->
-      <div class="bna-card bna-real bna-vertical" data-category="face">
+      <div class="bna-card bna-real bna-vertical" data-category="face" data-results='[{"before":"assets/bna/doublechin-before.jpg","after":"assets/bna/doublechin-after.jpg"},{"before":"assets/bna/doublechin-2-before.jpg","after":"assets/bna/doublechin-2-after.jpg"}]'>
         <div class="bna-label">Double Chin Liposuction</div>
         <div class="bna-stage">
           <img src="assets/bna/doublechin-before.jpg" class="bna-before" draggable="false" alt="Double chin liposuction — before">
@@ -1221,7 +1227,7 @@
   <span data-i18n="wa">Book Now</span>
 </a>
 
-<script src="script.js?v=15"></script>
+<script src="script.js?v=16"></script>
 
 <!-- Liquid Glass SVG Filter — DO NOT REMOVE -->
 <svg id="liquid-glass-filter" style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;" aria-hidden="true">

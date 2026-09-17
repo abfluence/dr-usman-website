@@ -2603,3 +2603,48 @@ body, p, .about-bio,
   .bna-grid.bna-grid-h { grid-template-columns: 1fr; }
   .bna-tier { margin-top: 24px; }
 }
+
+/* Result switcher — only rendered on cards with 2+ results.
+   Top-right is free in both slider directions (labels sit top-centre
+   and in the other corners). */
+.bna-nav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 169, 110, 0.4);
+}
+.bna-nav-btn {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--gold);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bna-nav-btn:hover,
+.bna-nav-btn:focus-visible { background: rgba(201, 169, 110, 0.22); outline: none; }
+.bna-nav-count {
+  min-width: 30px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+}

@@ -751,6 +751,54 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
       });
     }
 
+    /* Multiple results per procedure: data-results='[{before, after}, …]'.
+       2+ entries adds a ‹ 1 / n › switcher; each switch resets the slider. */
+    var results = [];
+    try { results = JSON.parse(card.dataset.results || '[]'); } catch (err) { results = []; }
+    if (results.length > 1) {
+      var beforeImg = card.querySelector('.bna-before');
+      var afterImg  = after.querySelector('img');
+      var label     = (card.querySelector('.bna-label') || {}).textContent || 'Result';
+      var idx       = 0;
+
+      var nav = document.createElement('div');
+      nav.className = 'bna-nav';
+      nav.innerHTML =
+        '<button type="button" class="bna-nav-btn" data-dir="-1" aria-label="Previous result">&#8249;</button>' +
+        '<span class="bna-nav-count" aria-live="polite"></span>' +
+        '<button type="button" class="bna-nav-btn" data-dir="1" aria-label="Next result">&#8250;</button>';
+      card.appendChild(nav);
+      var count = nav.querySelector('.bna-nav-count');
+
+      var show = function(i) {
+        idx = (i + results.length) % results.length;
+        var r = results[idx];
+        beforeImg.src = r.before;
+        afterImg.src  = r.after;
+        beforeImg.alt = label + ' — before (result ' + (idx + 1) + ' of ' + results.length + ')';
+        afterImg.alt  = label + ' — after (result ' + (idx + 1) + ' of ' + results.length + ')';
+        count.textContent = (idx + 1) + ' / ' + results.length;
+        setPos(50);
+        /* warm the next pair so the switch doesn't flash */
+        var n = results[(idx + 1) % results.length];
+        [n.before, n.after].forEach(function(u) { var im = new Image(); im.src = u; });
+      };
+
+      nav.addEventListener('click', function(e) {
+        var btn = e.target.closest('.bna-nav-btn');
+        if (!btn) return;
+        e.stopPropagation();
+        show(idx + parseInt(btn.dataset.dir, 10));
+      });
+      /* keep taps on the switcher from moving the slider */
+      ['mousedown', 'touchstart'].forEach(function(ev) {
+        nav.addEventListener(ev, function(e) { e.stopPropagation(); }, { passive: true });
+      });
+
+      show(0);
+      return;
+    }
+
     /* Init at 50% */
     setPos(50);
   });

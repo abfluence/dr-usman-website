@@ -826,6 +826,8 @@ ul { list-style:none; }
 .bna-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  /* Two-column result cards leave holes at row ends; backfill them. */
+  grid-auto-flow: dense;
   gap: 12px;
   padding: 24px var(--container) 0;
   max-width: 1400px;

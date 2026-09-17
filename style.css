@@ -2533,3 +2533,73 @@ body, p, .about-bio,
   .pay { padding: 80px 0 20px; }
   .pay-card { padding: 36px 24px 28px; margin-top: 34px; }
 }
+
+/* ============================================================
+   BEFORE & AFTER — tiers
+   Left–right sliders above, up–down sliders below, placeholders
+   last, so card shapes never mix in one grid.
+============================================================ */
+.bna-tier { margin-top: 36px; }
+.bna-tier.bna-tier-empty { display: none; }
+
+.bna-tier-label {
+  max-width: 1400px;
+  margin: 0 auto -8px;
+  padding: 0 var(--container);
+  box-sizing: border-box;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+/* Left–right: two 19:11 cards side by side */
+.bna-grid.bna-grid-h {
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: row;
+  max-width: 1150px;
+  gap: 16px;
+}
+.bna-grid-h .bna-card { aspect-ratio: 19 / 11; }
+
+/* Up–down: one wide 5:2 card per row, large enough to compare */
+.bna-grid.bna-grid-v {
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  max-width: 900px;
+  gap: 16px;
+}
+.bna-grid-v .bna-card { aspect-ratio: 5 / 2; }
+
+/* Placeholders: portrait grid, no wide cards to backfill around */
+.bna-grid.bna-grid-ph { grid-auto-flow: row; }
+
+/* Vertical slider mechanics — before on top, after revealed below */
+.bna-vertical .bna-stage { cursor: ns-resize; }
+.bna-vertical .bna-after { clip-path: inset(50% 0 0 0); }
+.bna-vertical .bna-line {
+  top: 50%;
+  bottom: auto;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: 2px;
+  transform: translateY(-50%);
+}
+.bna-vertical .bna-handle {
+  flex-direction: column;
+  cursor: ns-resize;
+  touch-action: none;   /* drag from the handle on phones without scrolling the page */
+}
+.bna-vertical .bna-handle svg { transform: rotate(90deg); }
+.bna-vertical .bna-side-l { top: 10px; bottom: auto; }
+.bna-vertical .bna-side-r { bottom: 10px; left: 10px; right: auto; }
+
+@media (max-width: 700px) {
+  .bna-grid.bna-grid-h { grid-template-columns: 1fr; }
+  .bna-tier { margin-top: 24px; }
+}

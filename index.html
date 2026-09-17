@@ -20,7 +20,7 @@
   <!-- Lenis smooth scroll -->
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
 
-  <link rel="stylesheet" href="style.css?v=14"/>
+  <link rel="stylesheet" href="style.css?v=15"/>
   <!-- Prevent flash of wrong theme/lang -->
   <script>(function(){var t=localStorage.getItem('dr-usman-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');var l=localStorage.getItem('dr-usman-lang');var lang=l==='ar'?'ar':'en';document.documentElement.setAttribute('data-lang',lang);document.documentElement.setAttribute('dir',lang==='ar'?'rtl':'ltr');document.documentElement.setAttribute('lang',lang==='ar'?'ar':'en');})();</script>
   <script src="translations.js"></script>
@@ -447,173 +447,182 @@
     <button class="bna-filter"        data-filter="non-surgical" data-i18n="bna.fNonSurg">Non-Surgical</button>
   </div>
 
-  <div class="bna-grid">
-
-    <!-- Real patient result — Arms Liposculpture (source: instagram.com/p/DaS295YiHVs) -->
-    <div class="bna-card bna-wide" data-category="body">
-      <div class="bna-label">Arms Liposculpture</div>
-      <div class="bna-stage">
-        <img src="assets/bna/arms-before.jpg" class="bna-before" draggable="false" alt="Arms liposculpture — before">
-        <div class="bna-after"><img src="assets/bna/arms-after.jpg" draggable="false" alt="Arms liposculpture — after"></div>
-        <div class="bna-line"></div>
-        <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="bna-side bna-side-l">Before</span>
-        <span class="bna-side bna-side-r">After</span>
+  <!-- Left–right sliders: the clinic presented these side by side -->
+  <div class="bna-tier" data-tier="h">
+    <p class="bna-tier-label" data-i18n="bna.tierH">Drag left and right</p>
+    <div class="bna-grid bna-grid-h">
+      <!-- Real patient result — Arms Liposculpture (source: instagram.com/p/DaS295YiHVs) -->
+      <div class="bna-card bna-real" data-category="body">
+        <div class="bna-label">Arms Liposculpture</div>
+        <div class="bna-stage">
+          <img src="assets/bna/arms-before.jpg" class="bna-before" draggable="false" alt="Arms liposculpture — before">
+          <div class="bna-after"><img src="assets/bna/arms-after.jpg" draggable="false" alt="Arms liposculpture — after"></div>
+          <div class="bna-line"></div>
+          <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="bna-side bna-side-l">Before</span>
+          <span class="bna-side bna-side-r">After</span>
+        </div>
+      </div>
+      <!-- Real patient result — Lip Filler (source: @drusmanpk "Lip Filler" highlight) -->
+      <div class="bna-card bna-real" data-category="non-surgical">
+        <div class="bna-label">Lip Filler</div>
+        <div class="bna-stage">
+          <img src="assets/bna/lips-before.jpg" class="bna-before" draggable="false" alt="Lip filler — before">
+          <div class="bna-after"><img src="assets/bna/lips-after.jpg" draggable="false" alt="Lip filler — after"></div>
+          <div class="bna-line"></div>
+          <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="bna-side bna-side-l">Before</span>
+          <span class="bna-side bna-side-r">After</span>
+        </div>
       </div>
     </div>
+  </div>
 
-
-    <!-- Real patient result — Upper Blepharoplasty (source: instagram.com/p/DSpE2vxCAIg)
-         Source composite stacks before over after, so it cannot drive a slider — shown whole. -->
-    <div class="bna-card bna-static" data-category="eyes">
-      <div class="bna-label">Upper Blepharoplasty</div>
-      <img src="assets/bna/eyelid-result.jpg" class="bna-result" draggable="false" alt="Upper blepharoplasty — before and after">
-    </div>
-
-    <!-- Real patient result — Lower Blepharoplasty (source: instagram.com/p/DYWfGKaiOqI) -->
-    <div class="bna-card bna-wide" data-category="eyes">
-      <div class="bna-label">Lower Blepharoplasty</div>
-      <div class="bna-stage">
-        <img src="assets/bna/lowerbleph-before.jpg" class="bna-before" draggable="false" alt="Lower blepharoplasty — before">
-        <div class="bna-after"><img src="assets/bna/lowerbleph-after.jpg" draggable="false" alt="Lower blepharoplasty — after"></div>
-        <div class="bna-line"></div>
-        <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="bna-side bna-side-l">Before</span>
-        <span class="bna-side bna-side-r">After</span>
+  <!-- Up–down sliders: the clinic presented these stacked top/bottom -->
+  <div class="bna-tier" data-tier="v">
+    <p class="bna-tier-label" data-i18n="bna.tierV">Drag up and down</p>
+    <div class="bna-grid bna-grid-v">
+      <!-- Real patient result — Upper Blepharoplasty (source: instagram.com/p/DSpE2vxCAIg) -->
+      <div class="bna-card bna-real bna-vertical" data-category="eyes">
+        <div class="bna-label">Upper Blepharoplasty</div>
+        <div class="bna-stage">
+          <img src="assets/bna/upperbleph-before.jpg" class="bna-before" draggable="false" alt="Upper blepharoplasty — before">
+          <div class="bna-after"><img src="assets/bna/upperbleph-after.jpg" draggable="false" alt="Upper blepharoplasty — after"></div>
+          <div class="bna-line"></div>
+          <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="bna-side bna-side-l">Before</span>
+          <span class="bna-side bna-side-r">After</span>
+        </div>
+      </div>
+      <!-- Real patient result — Lower Blepharoplasty (source: instagram.com/p/DYWfGKaiOqI) -->
+      <div class="bna-card bna-real bna-vertical" data-category="eyes">
+        <div class="bna-label">Lower Blepharoplasty</div>
+        <div class="bna-stage">
+          <img src="assets/bna/lowerbleph-before.jpg" class="bna-before" draggable="false" alt="Lower blepharoplasty — before">
+          <div class="bna-after"><img src="assets/bna/lowerbleph-after.jpg" draggable="false" alt="Lower blepharoplasty — after"></div>
+          <div class="bna-line"></div>
+          <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="bna-side bna-side-l">Before</span>
+          <span class="bna-side bna-side-r">After</span>
+        </div>
+      </div>
+      <!-- Real patient result — Double Chin Liposuction (source: @drusmanpk "Double Chin" highlight) -->
+      <div class="bna-card bna-real bna-vertical" data-category="face">
+        <div class="bna-label">Double Chin Liposuction</div>
+        <div class="bna-stage">
+          <img src="assets/bna/doublechin-before.jpg" class="bna-before" draggable="false" alt="Double chin liposuction — before">
+          <div class="bna-after"><img src="assets/bna/doublechin-after.jpg" draggable="false" alt="Double chin liposuction — after"></div>
+          <div class="bna-line"></div>
+          <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="bna-side bna-side-l">Before</span>
+          <span class="bna-side bna-side-r">After</span>
+        </div>
       </div>
     </div>
+  </div>
 
-    <!-- Real patient result — Double Chin Liposuction (source: @drusmanpk "Double Chin" story highlight) -->
-    <div class="bna-card bna-wide" data-category="face">
-      <div class="bna-label">Double Chin Liposuction</div>
-      <div class="bna-stage">
-        <img src="assets/bna/doublechin-before.jpg" class="bna-before" draggable="false" alt="Double chin liposuction — before">
-        <div class="bna-after"><img src="assets/bna/doublechin-after.jpg" draggable="false" alt="Double chin liposuction — after"></div>
-        <div class="bna-line"></div>
-        <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="bna-side bna-side-l">Before</span>
-        <span class="bna-side bna-side-r">After</span>
+  <!-- Awaiting clinical photos -->
+  <div class="bna-tier" data-tier="ph">
+    <div class="bna-grid bna-grid-ph">
+      <div class="bna-card" data-category="body">
+        <div class="bna-label">4D Liposculpture</div>
+        <div class="bna-stage">
+          <picture>
+            <source type="image/webp" srcset="assets/proc-liposculpture-480.webp 480w, assets/proc-liposculpture-960.webp 960w" sizes="(max-width: 480px) 92vw, 34vw">
+            <img src="assets/proc-liposculpture-960.jpg" srcset="assets/proc-liposculpture-480.jpg 480w, assets/proc-liposculpture-960.jpg 960w" sizes="(max-width: 480px) 92vw, 34vw" class="bna-before" draggable="false" alt="Before">
+          </picture>
+          <div class="bna-after"><span class="bna-ph">After Photo<br>Coming Soon</span></div>
+          <div class="bna-line"></div>
+          <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="bna-side bna-side-l">Before</span>
+          <span class="bna-side bna-side-r">After</span>
+        </div>
+      </div>
+      <div class="bna-card" data-category="body">
+        <div class="bna-label">Brazilian Butt Lift</div>
+        <div class="bna-stage">
+          <picture>
+            <source type="image/webp" srcset="assets/proc-bbl-480.webp 480w, assets/proc-bbl-960.webp 960w" sizes="(max-width: 480px) 92vw, 34vw">
+            <img src="assets/proc-bbl-960.jpg" srcset="assets/proc-bbl-480.jpg 480w, assets/proc-bbl-960.jpg 960w" sizes="(max-width: 480px) 92vw, 34vw" class="bna-before" draggable="false" alt="Before">
+          </picture>
+          <div class="bna-after"><span class="bna-ph">After Photo<br>Coming Soon</span></div>
+          <div class="bna-line"></div>
+          <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="bna-side bna-side-l">Before</span>
+          <span class="bna-side bna-side-r">After</span>
+        </div>
+      </div>
+      <div class="bna-card" data-category="body">
+        <div class="bna-label">Tummy Tuck</div>
+        <div class="bna-stage">
+          <picture>
+            <source type="image/webp" srcset="assets/proc-tummy-tuck-480.webp 480w, assets/proc-tummy-tuck-960.webp 960w" sizes="(max-width: 480px) 92vw, 34vw">
+            <img src="assets/proc-tummy-tuck-960.jpg" srcset="assets/proc-tummy-tuck-480.jpg 480w, assets/proc-tummy-tuck-960.jpg 960w" sizes="(max-width: 480px) 92vw, 34vw" class="bna-before" draggable="false" alt="Before">
+          </picture>
+          <div class="bna-after"><span class="bna-ph">After Photo<br>Coming Soon</span></div>
+          <div class="bna-line"></div>
+          <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="bna-side bna-side-l">Before</span>
+          <span class="bna-side bna-side-r">After</span>
+        </div>
+      </div>
+      <div class="bna-card" data-category="breast">
+        <div class="bna-label">Breast Augmentation</div>
+        <div class="bna-stage">
+          <picture>
+            <source type="image/webp" srcset="assets/proc-breast-aug-480.webp 480w, assets/proc-breast-aug-960.webp 960w" sizes="(max-width: 480px) 92vw, 34vw">
+            <img src="assets/proc-breast-aug-960.jpg" srcset="assets/proc-breast-aug-480.jpg 480w, assets/proc-breast-aug-960.jpg 960w" sizes="(max-width: 480px) 92vw, 34vw" class="bna-before" draggable="false" alt="Before">
+          </picture>
+          <div class="bna-after"><span class="bna-ph">After Photo<br>Coming Soon</span></div>
+          <div class="bna-line"></div>
+          <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="bna-side bna-side-l">Before</span>
+          <span class="bna-side bna-side-r">After</span>
+        </div>
+      </div>
+      <div class="bna-card" data-category="breast">
+        <div class="bna-label">Breast Lift</div>
+        <div class="bna-stage">
+          <picture>
+            <source type="image/webp" srcset="assets/proc-breast-lift-480.webp 480w, assets/proc-breast-lift-960.webp 960w" sizes="(max-width: 480px) 92vw, 34vw">
+            <img src="assets/proc-breast-lift-960.jpg" srcset="assets/proc-breast-lift-480.jpg 480w, assets/proc-breast-lift-960.jpg 960w" sizes="(max-width: 480px) 92vw, 34vw" class="bna-before" draggable="false" alt="Before">
+          </picture>
+          <div class="bna-after"><span class="bna-ph">After Photo<br>Coming Soon</span></div>
+          <div class="bna-line"></div>
+          <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="bna-side bna-side-l">Before</span>
+          <span class="bna-side bna-side-r">After</span>
+        </div>
+      </div>
+      <div class="bna-card" data-category="face">
+        <div class="bna-label">Rhinoplasty</div>
+        <div class="bna-stage">
+          <picture>
+            <source type="image/webp" srcset="assets/proc-rhinoplasty-480.webp 480w, assets/proc-rhinoplasty-960.webp 960w" sizes="(max-width: 480px) 92vw, 34vw">
+            <img src="assets/proc-rhinoplasty-960.jpg" srcset="assets/proc-rhinoplasty-480.jpg 480w, assets/proc-rhinoplasty-960.jpg 960w" sizes="(max-width: 480px) 92vw, 34vw" class="bna-before" draggable="false" alt="Before">
+          </picture>
+          <div class="bna-after"><span class="bna-ph">After Photo<br>Coming Soon</span></div>
+          <div class="bna-line"></div>
+          <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="bna-side bna-side-l">Before</span>
+          <span class="bna-side bna-side-r">After</span>
+        </div>
+      </div>
+      <div class="bna-card" data-category="face">
+        <div class="bna-label">Facelift</div>
+        <div class="bna-stage">
+          <picture>
+            <source type="image/webp" srcset="assets/proc-facelift-480.webp 480w, assets/proc-facelift-960.webp 960w" sizes="(max-width: 480px) 92vw, 34vw">
+            <img src="assets/proc-facelift-960.jpg" srcset="assets/proc-facelift-480.jpg 480w, assets/proc-facelift-960.jpg 960w" sizes="(max-width: 480px) 92vw, 34vw" class="bna-before" draggable="false" alt="Before">
+          </picture>
+          <div class="bna-after"><span class="bna-ph">After Photo<br>Coming Soon</span></div>
+          <div class="bna-line"></div>
+          <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="bna-side bna-side-l">Before</span>
+          <span class="bna-side bna-side-r">After</span>
+        </div>
       </div>
     </div>
-
-    <!-- Real patient result — Lip Filler (source: @drusmanpk "Lip Filler" story highlight) -->
-    <div class="bna-card bna-wide" data-category="non-surgical">
-      <div class="bna-label">Lip Filler</div>
-      <div class="bna-stage">
-        <img src="assets/bna/lips-before.jpg" class="bna-before" draggable="false" alt="Lip filler — before">
-        <div class="bna-after"><img src="assets/bna/lips-after.jpg" draggable="false" alt="Lip filler — after"></div>
-        <div class="bna-line"></div>
-        <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="bna-side bna-side-l">Before</span>
-        <span class="bna-side bna-side-r">After</span>
-      </div>
-    </div>
-
-    <div class="bna-card" data-category="body">
-      <div class="bna-label">4D Liposculpture</div>
-      <div class="bna-stage">
-        <picture>
-          <source type="image/webp" srcset="assets/proc-liposculpture-480.webp 480w, assets/proc-liposculpture-960.webp 960w" sizes="(max-width: 480px) 92vw, 34vw">
-          <img src="assets/proc-liposculpture-960.jpg" srcset="assets/proc-liposculpture-480.jpg 480w, assets/proc-liposculpture-960.jpg 960w" sizes="(max-width: 480px) 92vw, 34vw" class="bna-before" draggable="false" alt="Before">
-        </picture>
-        <div class="bna-after"><span class="bna-ph">After Photo<br>Coming Soon</span></div>
-        <div class="bna-line"></div>
-        <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="bna-side bna-side-l">Before</span>
-        <span class="bna-side bna-side-r">After</span>
-      </div>
-    </div>
-
-    <div class="bna-card" data-category="body">
-      <div class="bna-label">Brazilian Butt Lift</div>
-      <div class="bna-stage">
-        <picture>
-          <source type="image/webp" srcset="assets/proc-bbl-480.webp 480w, assets/proc-bbl-960.webp 960w" sizes="(max-width: 480px) 92vw, 34vw">
-          <img src="assets/proc-bbl-960.jpg" srcset="assets/proc-bbl-480.jpg 480w, assets/proc-bbl-960.jpg 960w" sizes="(max-width: 480px) 92vw, 34vw" class="bna-before" draggable="false" alt="Before">
-        </picture>
-        <div class="bna-after"><span class="bna-ph">After Photo<br>Coming Soon</span></div>
-        <div class="bna-line"></div>
-        <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="bna-side bna-side-l">Before</span>
-        <span class="bna-side bna-side-r">After</span>
-      </div>
-    </div>
-
-    <div class="bna-card" data-category="body">
-      <div class="bna-label">Tummy Tuck</div>
-      <div class="bna-stage">
-        <picture>
-          <source type="image/webp" srcset="assets/proc-tummy-tuck-480.webp 480w, assets/proc-tummy-tuck-960.webp 960w" sizes="(max-width: 480px) 92vw, 34vw">
-          <img src="assets/proc-tummy-tuck-960.jpg" srcset="assets/proc-tummy-tuck-480.jpg 480w, assets/proc-tummy-tuck-960.jpg 960w" sizes="(max-width: 480px) 92vw, 34vw" class="bna-before" draggable="false" alt="Before">
-        </picture>
-        <div class="bna-after"><span class="bna-ph">After Photo<br>Coming Soon</span></div>
-        <div class="bna-line"></div>
-        <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="bna-side bna-side-l">Before</span>
-        <span class="bna-side bna-side-r">After</span>
-      </div>
-    </div>
-
-    <div class="bna-card" data-category="breast">
-      <div class="bna-label">Breast Augmentation</div>
-      <div class="bna-stage">
-        <picture>
-          <source type="image/webp" srcset="assets/proc-breast-aug-480.webp 480w, assets/proc-breast-aug-960.webp 960w" sizes="(max-width: 480px) 92vw, 34vw">
-          <img src="assets/proc-breast-aug-960.jpg" srcset="assets/proc-breast-aug-480.jpg 480w, assets/proc-breast-aug-960.jpg 960w" sizes="(max-width: 480px) 92vw, 34vw" class="bna-before" draggable="false" alt="Before">
-        </picture>
-        <div class="bna-after"><span class="bna-ph">After Photo<br>Coming Soon</span></div>
-        <div class="bna-line"></div>
-        <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="bna-side bna-side-l">Before</span>
-        <span class="bna-side bna-side-r">After</span>
-      </div>
-    </div>
-
-    <div class="bna-card" data-category="breast">
-      <div class="bna-label">Breast Lift</div>
-      <div class="bna-stage">
-        <picture>
-          <source type="image/webp" srcset="assets/proc-breast-lift-480.webp 480w, assets/proc-breast-lift-960.webp 960w" sizes="(max-width: 480px) 92vw, 34vw">
-          <img src="assets/proc-breast-lift-960.jpg" srcset="assets/proc-breast-lift-480.jpg 480w, assets/proc-breast-lift-960.jpg 960w" sizes="(max-width: 480px) 92vw, 34vw" class="bna-before" draggable="false" alt="Before">
-        </picture>
-        <div class="bna-after"><span class="bna-ph">After Photo<br>Coming Soon</span></div>
-        <div class="bna-line"></div>
-        <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="bna-side bna-side-l">Before</span>
-        <span class="bna-side bna-side-r">After</span>
-      </div>
-    </div>
-
-    <div class="bna-card" data-category="face">
-      <div class="bna-label">Rhinoplasty</div>
-      <div class="bna-stage">
-        <picture>
-          <source type="image/webp" srcset="assets/proc-rhinoplasty-480.webp 480w, assets/proc-rhinoplasty-960.webp 960w" sizes="(max-width: 480px) 92vw, 34vw">
-          <img src="assets/proc-rhinoplasty-960.jpg" srcset="assets/proc-rhinoplasty-480.jpg 480w, assets/proc-rhinoplasty-960.jpg 960w" sizes="(max-width: 480px) 92vw, 34vw" class="bna-before" draggable="false" alt="Before">
-        </picture>
-        <div class="bna-after"><span class="bna-ph">After Photo<br>Coming Soon</span></div>
-        <div class="bna-line"></div>
-        <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="bna-side bna-side-l">Before</span>
-        <span class="bna-side bna-side-r">After</span>
-      </div>
-    </div>
-
-    <div class="bna-card" data-category="face">
-      <div class="bna-label">Facelift</div>
-      <div class="bna-stage">
-        <picture>
-          <source type="image/webp" srcset="assets/proc-facelift-480.webp 480w, assets/proc-facelift-960.webp 960w" sizes="(max-width: 480px) 92vw, 34vw">
-          <img src="assets/proc-facelift-960.jpg" srcset="assets/proc-facelift-480.jpg 480w, assets/proc-facelift-960.jpg 960w" sizes="(max-width: 480px) 92vw, 34vw" class="bna-before" draggable="false" alt="Before">
-        </picture>
-        <div class="bna-after"><span class="bna-ph">After Photo<br>Coming Soon</span></div>
-        <div class="bna-line"></div>
-        <div class="bna-handle"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="bna-side bna-side-l">Before</span>
-        <span class="bna-side bna-side-r">After</span>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -1212,7 +1221,7 @@
   <span data-i18n="wa">Book Now</span>
 </a>
 
-<script src="script.js?v=14"></script>
+<script src="script.js?v=15"></script>
 
 <!-- Liquid Glass SVG Filter — DO NOT REMOVE -->
 <svg id="liquid-glass-filter" style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;" aria-hidden="true">

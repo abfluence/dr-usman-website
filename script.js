@@ -650,6 +650,11 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
         card.classList.toggle('bna-hidden', !match);
       });
 
+      /* Hide a tier (and its label) when the filter leaves it empty */
+      document.querySelectorAll('.bna-tier').forEach(function(tier) {
+        tier.classList.toggle('bna-tier-empty', !tier.querySelector('.bna-card:not(.bna-hidden)'));
+      });
+
       /* Animate from captured state to new layout */
       Flip.from(state, {
         duration: 0.55,
@@ -680,47 +685,71 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
     var after   = card.querySelector('.bna-after');
     var line    = card.querySelector('.bna-line');
     var handle  = card.querySelector('.bna-handle');
-    /* Static result cards have no slider parts — skip them */
+    /* Placeholder / static cards have no slider parts — skip them */
     if (!stage || !after || !line || !handle) return;
+    var vertical = card.classList.contains('bna-vertical');
     var dragging = false;
 
     function setPos(pct) {
       pct = Math.max(2, Math.min(98, pct));
-      after.style.clipPath  = 'inset(0 0 0 ' + pct + '%)';
-      line.style.left       = pct + '%';
-      handle.style.left     = pct + '%';
+      if (vertical) {
+        after.style.clipPath = 'inset(' + pct + '% 0 0 0)';
+        line.style.top       = pct + '%';
+        handle.style.top     = pct + '%';
+      } else {
+        after.style.clipPath = 'inset(0 0 0 ' + pct + '%)';
+        line.style.left      = pct + '%';
+        handle.style.left    = pct + '%';
+      }
     }
 
-    function posFromClient(clientX) {
+    function posFromPoint(pt) {
       var rect = stage.getBoundingClientRect();
-      return ((clientX - rect.left) / rect.width) * 100;
+      return vertical
+        ? ((pt.clientY - rect.top)  / rect.height) * 100
+        : ((pt.clientX - rect.left) / rect.width)  * 100;
     }
 
     /* Mouse */
     stage.addEventListener('mousedown', function(e) {
       dragging = true;
       card.classList.add('dragging');
-      setPos(posFromClient(e.clientX));
+      setPos(posFromPoint(e));
     });
     window.addEventListener('mousemove', function(e) {
       if (!dragging) return;
-      setPos(posFromClient(e.clientX));
+      setPos(posFromPoint(e));
     });
     window.addEventListener('mouseup', function() {
       dragging = false;
       card.classList.remove('dragging');
     });
 
-    /* Touch */
-    stage.addEventListener('touchstart', function(e) {
+    /* Touch. Left–right sliders drag from anywhere on the image. On a phone
+       an up–down drag is also a page scroll, so vertical sliders drag only
+       from the handle (touch-action: none) and a tap on the image jumps the
+       line — the page stays scrollable over the card. */
+    var dragTarget = vertical ? handle : stage;
+    dragTarget.addEventListener('touchstart', function(e) {
       dragging = true;
-      setPos(posFromClient(e.touches[0].clientX));
+      card.classList.add('dragging');
+      setPos(posFromPoint(e.touches[0]));
     }, { passive: true });
-    stage.addEventListener('touchmove', function(e) {
+    dragTarget.addEventListener('touchmove', function(e) {
       if (!dragging) return;
-      setPos(posFromClient(e.touches[0].clientX));
-    }, { passive: true });
-    stage.addEventListener('touchend', function() { dragging = false; });
+      if (vertical) e.preventDefault();
+      setPos(posFromPoint(e.touches[0]));
+    }, { passive: !vertical });
+    dragTarget.addEventListener('touchend', function() {
+      dragging = false;
+      card.classList.remove('dragging');
+    });
+    if (vertical) {
+      stage.addEventListener('click', function(e) {
+        if (e.target.closest('.bna-handle')) return;
+        setPos(posFromPoint(e));
+      });
+    }
 
     /* Init at 50% */
     setPos(50);

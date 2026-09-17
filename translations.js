@@ -48,7 +48,7 @@ window.DR_USMAN_I18N = {
       calPickDate:'Select a date above',
       calPickTime:'— pick a time',
     },
-    bna: {
+    bna: { tierH:'Drag left and right', tierV:'Drag up and down',
       tag:'Transformations', title:'Before &amp; <em>After</em>', hint:'Drag to reveal',
       fAll:'All', fBody:'Body', fBreast:'Breast', fFace:'Face', fEyes:'Eyes', fNonSurg:'Non-Surgical',
     },
@@ -162,7 +162,7 @@ window.DR_USMAN_I18N = {
       calPickDate:'اختاري تاريخًا أعلاه',
       calPickTime:'— اختاري وقتًا',
     },
-    bna: {
+    bna: { tierH:'اسحبي يميناً ويساراً', tierV:'اسحبي لأعلى ولأسفل',
       tag:'نتائج التحول', title:'قبل &amp; <em>بعد</em>', hint:'اسحبي للكشف',
       fAll:'الكل', fBody:'الجسم', fBreast:'الثدي', fFace:'الوجه', fEyes:'العيون', fNonSurg:'غير جراحي',
     },

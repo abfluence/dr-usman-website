@@ -1011,3 +1011,124 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
     startOnce();
   }
 })();
+
+/* ============================================================
+   GALLERY — tabs + lightbox (images and videos)
+============================================================ */
+(function initGallery() {
+  var section = document.getElementById('gallery');
+  if (!section) return;
+
+  var tabs   = section.querySelectorAll('.gal-tab');
+  var panels = section.querySelectorAll('.gal-panel');
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var name = tab.dataset.panel;
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      panels.forEach(function (p) {
+        var on = p.dataset.panel === name;
+        p.classList.toggle('active', on);
+        p.hidden = !on;
+      });
+      if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+    });
+  });
+
+  // Play badge on video tiles
+  section.querySelectorAll('.gal-item[data-type="video"]').forEach(function (item) {
+    var b = document.createElement('span');
+    b.className = 'gal-play';
+    b.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>';
+    item.appendChild(b);
+  });
+
+  var box   = document.getElementById('galLightbox');
+  var stage = box.querySelector('.gal-lb-stage');
+  var count = box.querySelector('.gal-lb-count');
+  var list = [], index = 0, lastFocus = null;
+
+  function render() {
+    var item = list[index];
+    var alt  = (item.querySelector('img') || {}).alt || '';
+    stage.innerHTML = '';
+    if (item.dataset.type === 'video') {
+      var v = document.createElement('video');
+      v.src = item.dataset.src;
+      v.controls = true; v.autoplay = true; v.playsInline = true;
+      v.setAttribute('playsinline', '');
+      v.setAttribute('aria-label', alt);
+      stage.appendChild(v);
+    } else {
+      var img = document.createElement('img');
+      img.src = item.dataset.src;
+      img.alt = alt;
+      stage.appendChild(img);
+    }
+    count.textContent = (index + 1) + ' / ' + list.length;
+    // Preload the next photo so arrowing feels instant
+    var next = list[(index + 1) % list.length];
+    if (next && next.dataset.type !== 'video') { new Image().src = next.dataset.src; }
+  }
+
+  function open(item) {
+    var panel = item.closest('.gal-panel');
+    list = Array.prototype.slice.call(panel.querySelectorAll('.gal-item'));
+    index = list.indexOf(item);
+    lastFocus = item;
+    box.hidden = false;
+    document.documentElement.style.overflow = 'hidden';
+    document.documentElement.classList.add('gal-open');
+    if (typeof lenis !== 'undefined' && lenis) lenis.stop();
+    render();
+    box.querySelector('.gal-lb-close').focus();
+  }
+
+  function close() {
+    box.hidden = true;
+    stage.innerHTML = '';   // stops any playing video
+    document.documentElement.style.overflow = '';
+    document.documentElement.classList.remove('gal-open');
+    if (typeof lenis !== 'undefined' && lenis) lenis.start();
+    if (lastFocus) lastFocus.focus();
+  }
+
+  function step(d) {
+    if (list.length < 2) return;
+    index = (index + d + list.length) % list.length;
+    render();
+  }
+
+  section.querySelectorAll('.gal-item').forEach(function (item) {
+    item.addEventListener('click', function () { open(item); });
+  });
+
+  box.querySelector('.gal-lb-close').addEventListener('click', close);
+  box.querySelector('.gal-lb-prev').addEventListener('click', function () { step(-1); });
+  box.querySelector('.gal-lb-next').addEventListener('click', function () { step(1); });
+  box.addEventListener('click', function (e) { if (e.target === box) close(); });
+
+  document.addEventListener('keydown', function (e) {
+    if (box.hidden) return;
+    var rtl = document.documentElement.dir === 'rtl';
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') step(rtl ? -1 : 1);
+    else if (e.key === 'ArrowLeft')  step(rtl ? 1 : -1);
+  });
+
+  // Swipe on touch screens
+  var sx = null;
+  box.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+  box.addEventListener('touchend', function (e) {
+    if (sx === null) return;
+    var dx = e.changedTouches[0].clientX - sx;
+    sx = null;
+    if (Math.abs(dx) < 50) return;
+    var rtl = document.documentElement.dir === 'rtl';
+    step((dx < 0) !== rtl ? 1 : -1);
+  }, { passive: true });
+})();

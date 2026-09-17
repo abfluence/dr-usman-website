@@ -20,10 +20,10 @@
   <!-- Lenis smooth scroll -->
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
 
-  <link rel="stylesheet" href="style.css?v=18"/>
+  <link rel="stylesheet" href="style.css?v=19"/>
   <!-- Prevent flash of wrong theme/lang -->
   <script>(function(){var t=localStorage.getItem('dr-usman-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');var l=localStorage.getItem('dr-usman-lang');var lang=l==='ar'?'ar':'en';document.documentElement.setAttribute('data-lang',lang);document.documentElement.setAttribute('dir',lang==='ar'?'rtl':'ltr');document.documentElement.setAttribute('lang',lang==='ar'?'ar':'en');})();</script>
-  <script src="translations.js"></script>
+  <script src="translations.js?v=19"></script>
 </head>
 <body>
 
@@ -68,6 +68,7 @@
     <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
     <li><a href="#procedures" class="nav-link" data-i18n="nav.procedures">Procedures</a></li>
     <li><a href="#testimonials" class="nav-link" data-i18n="nav.reviews">Reviews</a></li>
+    <li><a href="#gallery" class="nav-link" data-i18n="nav.gallery">Gallery</a></li>
     <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
   </ul>
 
@@ -99,7 +100,8 @@
       <a href="#about"        class="menu-link" data-num="01" data-i18n="nav.about">About</a>
       <a href="#procedures"   class="menu-link" data-num="02" data-i18n="nav.procedures">Procedures</a>
       <a href="#testimonials" class="menu-link" data-num="03" data-i18n="nav.reviews">Reviews</a>
-      <a href="#contact"      class="menu-link" data-num="04" data-i18n="nav.contact">Contact</a>
+      <a href="#gallery"      class="menu-link" data-num="04" data-i18n="nav.gallery">Gallery</a>
+      <a href="#contact"      class="menu-link" data-num="05" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="menu-footer">
       <div class="menu-contacts">
@@ -896,6 +898,140 @@
 </section>
 
 <!-- ============================================================
+     GALLERY — personal (travel, lifestyle) and professional (clinic, events)
+     ADDING AN ITEM: copy a .gal-item into the right panel.
+       Photo: thumbnail (~640px wide) in assets/gallery/sm/, full view
+              (1600px long edge) in assets/gallery/lg/.
+       Video: data-type="video", data-src="assets/gallery/video/<name>.mp4"
+              (H.264, 720p), and a poster frame as the <img>. A play badge
+              is added automatically.
+============================================================ -->
+<section class="gal" id="gallery">
+  <div class="container">
+    <div class="proc-header">
+      <div>
+        <div class="section-tag" data-i18n="gallery.tag">Gallery</div>
+        <h2 class="section-title" data-i18n-html="gallery.title">Beyond The <em>Clinic</em></h2>
+      </div>
+      <p class="proc-hint" data-i18n="gallery.hint">Tap to view</p>
+    </div>
+
+    <div class="gal-tabs" role="tablist">
+      <button class="gal-tab active" type="button" role="tab" aria-selected="true" data-panel="personal" data-i18n="gallery.personal">Personal</button>
+      <button class="gal-tab" type="button" role="tab" aria-selected="false" data-panel="professional" data-i18n="gallery.professional">Professional</button>
+    </div>
+
+    <div class="gal-panel active" data-panel="personal" role="tabpanel">
+      <div class="gal-grid">
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-07.jpg">
+          <img src="assets/gallery/sm/dr-07.jpg" loading="lazy" alt="Dr. Usman in Paris">
+          <span class="gal-cap" data-i18n="gallery.c.paris">Paris</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-10.jpg">
+          <img src="assets/gallery/sm/dr-10.jpg" loading="lazy" alt="Dr. Usman performing Umrah at the Kaaba">
+          <span class="gal-cap" data-i18n="gallery.c.umrah">Umrah</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-20.jpg">
+          <img src="assets/gallery/sm/dr-20.jpg" loading="lazy" alt="Dr. Usman on a yacht">
+          <span class="gal-cap" data-i18n="gallery.c.sea">At sea</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-14.jpg">
+          <img src="assets/gallery/sm/dr-14.jpg" loading="lazy" alt="Dr. Usman overlooking Makkah">
+          <span class="gal-cap" data-i18n="gallery.c.makkah">Makkah</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-13.jpg">
+          <img src="assets/gallery/sm/dr-13.jpg" loading="lazy" alt="Dr. Usman on board a flight">
+          <span class="gal-cap" data-i18n="gallery.c.flight">In flight</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-22.jpg">
+          <img src="assets/gallery/sm/dr-22.jpg" loading="lazy" alt="Dr. Usman on a yacht deck">
+          <span class="gal-cap" data-i18n="gallery.c.sea">At sea</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-19.jpg">
+          <img src="assets/gallery/sm/dr-19.jpg" loading="lazy" alt="Dr. Usman at an airport">
+          <span class="gal-cap" data-i18n="gallery.c.travel">Travels</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-12.jpg">
+          <img src="assets/gallery/sm/dr-12.jpg" loading="lazy" alt="Dr. Usman with a friend">
+          <span class="gal-cap" data-i18n="gallery.c.friends">With friends</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-21.jpg">
+          <img src="assets/gallery/sm/dr-21.jpg" loading="lazy" alt="Dr. Usman at sunset on the water">
+          <span class="gal-cap" data-i18n="gallery.c.sea">At sea</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-11.jpg">
+          <img src="assets/gallery/sm/dr-11.jpg" loading="lazy" alt="Dr. Usman travelling">
+          <span class="gal-cap" data-i18n="gallery.c.travel">Travels</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="gal-panel" data-panel="professional" role="tabpanel" hidden>
+      <div class="gal-grid">
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-02.jpg">
+          <img src="assets/gallery/sm/dr-02.jpg" loading="lazy" alt="Dr. Usman in scrubs at the clinic">
+          <span class="gal-cap" data-i18n="gallery.c.consult">Consultation</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-16.jpg">
+          <img src="assets/gallery/sm/dr-16.jpg" loading="lazy" alt="Dr. Usman receiving an award">
+          <span class="gal-cap" data-i18n="gallery.c.award">Award</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-15.jpg">
+          <img src="assets/gallery/sm/dr-15.jpg" loading="lazy" alt="Dr. Usman with his clinic team">
+          <span class="gal-cap" data-i18n="gallery.c.team">With the team</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-03.jpg">
+          <img src="assets/gallery/sm/dr-03.jpg" loading="lazy" alt="Dr. Usman at an industry event">
+          <span class="gal-cap" data-i18n="gallery.c.event">Industry event</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-01.jpg">
+          <img src="assets/gallery/sm/dr-01.jpg" loading="lazy" alt="Dr. Usman at his clinic desk">
+          <span class="gal-cap" data-i18n="gallery.c.clinic">At the clinic</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-09.jpg">
+          <img src="assets/gallery/sm/dr-09.jpg" loading="lazy" alt="Dr. Usman at a medical conference">
+          <span class="gal-cap" data-i18n="gallery.c.conference">Conference</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-05.jpg">
+          <img src="assets/gallery/sm/dr-05.jpg" loading="lazy" alt="Dr. Usman with a team member">
+          <span class="gal-cap" data-i18n="gallery.c.team">With the team</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-17.jpg">
+          <img src="assets/gallery/sm/dr-17.jpg" loading="lazy" alt="Dr. Usman in the consultation room">
+          <span class="gal-cap" data-i18n="gallery.c.consult">Consultation</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-04.jpg">
+          <img src="assets/gallery/sm/dr-04.jpg" loading="lazy" alt="Dr. Usman at the clinic">
+          <span class="gal-cap" data-i18n="gallery.c.clinic">At the clinic</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-18.jpg">
+          <img src="assets/gallery/sm/dr-18.jpg" loading="lazy" alt="Dr. Usman in the consultation room">
+          <span class="gal-cap" data-i18n="gallery.c.consult">Consultation</span>
+        </button>
+        <button class="gal-item" type="button" data-type="image" data-src="assets/gallery/lg/dr-08.jpg">
+          <img src="assets/gallery/sm/dr-08.jpg" loading="lazy" alt="Dr. Usman at the clinic">
+          <span class="gal-cap" data-i18n="gallery.c.clinic">At the clinic</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="gal-lightbox" id="galLightbox" hidden>
+    <button class="gal-lb-btn gal-lb-close" type="button" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+    </button>
+    <button class="gal-lb-btn gal-lb-prev" type="button" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,18 9,12 15,6"/></svg>
+    </button>
+    <div class="gal-lb-stage"></div>
+    <button class="gal-lb-btn gal-lb-next" type="button" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+    </button>
+    <p class="gal-lb-count"></p>
+  </div>
+</section>
+
+<!-- ============================================================
      INSTAGRAM + FLIP GALLERY
 ============================================================ -->
 <section class="igfeed" id="instagram">
@@ -1204,6 +1340,7 @@
         <a href="#about" data-i18n="footer.about">About</a>
         <a href="#procedures" data-i18n="footer.procedures">Procedures</a>
         <a href="#testimonials" data-i18n="footer.reviews">Reviews</a>
+        <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
         <a href="#contact" data-i18n="footer.contact">Contact</a>
       </div>
       <div class="footer-soc">
@@ -1229,7 +1366,7 @@
   <span data-i18n="wa">Book Now</span>
 </a>
 
-<script src="script.js?v=18"></script>
+<script src="script.js?v=19"></script>
 
 <!-- Liquid Glass SVG Filter — DO NOT REMOVE -->
 <svg id="liquid-glass-filter" style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;" aria-hidden="true">

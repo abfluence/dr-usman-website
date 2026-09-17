@@ -5,7 +5,7 @@
 window.DR_USMAN_I18N = {
 
   en: {
-    nav: { about:'About', procedures:'Procedures', reviews:'Reviews', contact:'Contact', cta:'Book Consultation' },
+    nav: { about:'About', procedures:'Procedures', reviews:'Reviews', gallery:'Gallery', contact:'Contact', cta:'Book Consultation' },
     menu: { location:'Al Khobar &amp; Dammam · Saudi Arabia' },
     hero: {
       tag:'Plastic & Reconstructive Surgeon',
@@ -53,10 +53,12 @@ window.DR_USMAN_I18N = {
       fAll:'All', fBody:'Body', fBreast:'Breast', fFace:'Face', fEyes:'Eyes', fNonSurg:'Non-Surgical',
     },
     gallery: {
-      tag:'Personal Gallery',
-      title:'Behind The <em>Doctor</em>',
-      sub:'Move your cursor to explore moments from Dr. Usman\'s journey',
-      cta:'Move cursor to explore',
+      tag:'Gallery',
+      title:'Beyond The <em>Clinic</em>',
+      hint:'Tap to view',
+      personal:'Personal', professional:'Professional',
+      c: { paris:'Paris', umrah:'Umrah', makkah:'Makkah', sea:'At sea', flight:'In flight', travel:'Travels', friends:'With friends',
+           consult:'Consultation', award:'Award', team:'With the team', event:'Industry event', clinic:'At the clinic', conference:'Conference' },
     },
     igfeed: {
       tag:'Instagram',
@@ -119,7 +121,7 @@ window.DR_USMAN_I18N = {
   },
 
   ar: {
-    nav: { about:'عن الدكتور', procedures:'الإجراءات', reviews:'آراء المرضى', contact:'تواصلي معنا', cta:'احجزي استشارتك' },
+    nav: { about:'عن الدكتور', procedures:'الإجراءات', reviews:'آراء المرضى', gallery:'المعرض', contact:'تواصلي معنا', cta:'احجزي استشارتك' },
     menu: { location:'الخبر والدمام · المملكة العربية السعودية' },
     hero: {
       tag:'جراح التجميل وإعادة البناء',
@@ -167,10 +169,12 @@ window.DR_USMAN_I18N = {
       fAll:'الكل', fBody:'الجسم', fBreast:'الثدي', fFace:'الوجه', fEyes:'العيون', fNonSurg:'غير جراحي',
     },
     gallery: {
-      tag:'معرض شخصي',
-      title:'خلف <em>الطبيب</em>',
-      sub:'حرّك المؤشر لاستعراض لحظات من مسيرة الدكتور عثمان',
-      cta:'حرّك المؤشر للاستعراض',
+      tag:'المعرض',
+      title:'ما وراء <em>العيادة</em>',
+      hint:'اضغطي للعرض',
+      personal:'شخصي', professional:'مهني',
+      c: { paris:'باريس', umrah:'العمرة', makkah:'مكة المكرمة', sea:'في البحر', flight:'على متن الرحلة', travel:'في السفر', friends:'مع الأصدقاء',
+           consult:'الاستشارة', award:'تكريم', team:'مع الفريق', event:'فعالية مهنية', clinic:'في العيادة', conference:'مؤتمر طبي' },
     },
     igfeed: {
       tag:'إنستغرام',

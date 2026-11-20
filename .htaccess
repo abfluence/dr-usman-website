@@ -14,6 +14,9 @@ RedirectMatch 404 ^/dr-usman-next(/.*)?$
 RedirectMatch 404 ^/\.claude(/.*)?$
 RedirectMatch 404 ^/vercel\.json$
 RedirectMatch 404 ^/api/.*\.js$
+# diag.php was deleted from the repo, but Hostinger's git deploy leaves
+# removed files on disk. It printed the credentials file, so block it hard.
+RedirectMatch 404 ^/api/diag\.php$
 
 # Never serve the credentials file, whatever the server config
 <FilesMatch "^config\.local\.(php|ini)$">

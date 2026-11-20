@@ -16,6 +16,6 @@ RedirectMatch 404 ^/vercel\.json$
 RedirectMatch 404 ^/api/.*\.js$
 
 # Never serve the credentials file, whatever the server config
-<Files "config.local.php">
+<FilesMatch "^config\.local\.(php|ini)$">
   Require all denied
-</Files>
+</FilesMatch>

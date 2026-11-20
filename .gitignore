@@ -2,8 +2,9 @@
 # Instagram harvest staging — raw scrape output, expiring CDN manifests
 assets/ig-source/
 
-# Server-only credentials (Instagram Graph API token)
+# Server-only credentials (Instagram token, enquiry recipient)
 api/config.local.php
+api/config.local.ini
 
 # Abandoned Next.js prototype — kept locally, never deployed.
 # Full history is in git up to commit 9bdcebd.

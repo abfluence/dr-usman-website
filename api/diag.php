@@ -16,11 +16,34 @@ if (($_GET['k'] ?? '') !== 'u7f3q2') {
     exit;
 }
 
-$path = __DIR__ . '/config.local.php';
-$out  = ['exists' => is_file($path), 'readable' => is_readable($path)];
+// Preferred format first: plain KEY=value, immune to the quote problem.
+$iniPath = __DIR__ . '/config.local.ini';
+$out = ['ini_exists' => is_file($iniPath)];
+if ($out['ini_exists']) {
+    $parsed = @parse_ini_file($iniPath, false, INI_SCANNER_RAW);
+    $out['ini_parsed'] = is_array($parsed);
+    if (is_array($parsed)) {
+        foreach (['IG_USER_ID', 'LONG_LIVED_TOKEN', 'ENQUIRY_TO', 'ENQUIRY_FROM'] as $k) {
+            $out['ini_keys'][$k] = isset($parsed[$k])
+                ? ('present, length ' . strlen(trim((string)$parsed[$k])))
+                : 'missing';
+        }
+    }
+}
 
-if (!$out['exists']) {
-    echo json_encode($out, JSON_PRETTY_PRINT);
+// Resolved view through the real loader — what the endpoints actually see.
+require_once __DIR__ . '/config.php';
+foreach (['IG_USER_ID', 'LONG_LIVED_TOKEN', 'ENQUIRY_TO', 'ENQUIRY_FROM'] as $k) {
+    $v = dr_usman_config($k);
+    $out['resolved'][$k] = $v === '' ? 'EMPTY' : ('ok, length ' . strlen($v));
+}
+
+$path = __DIR__ . '/config.local.php';
+$out['php_exists']   = is_file($path);
+$out['php_readable'] = is_readable($path);
+
+if (!$out['php_exists']) {
+    echo json_encode($out, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     exit;
 }
 

@@ -6,10 +6,10 @@
  * is recorded even when the patient never presses send in WhatsApp, which
  * was previously losing every one of those leads.
  *
- * Recipient and From address come from api/config.local.php (untracked,
+ * Recipient and From address come from api/config.local.ini (untracked,
  * server-only), same as the Instagram credentials:
- *   define('ENQUIRY_TO',   'someone@example.com');
- *   define('ENQUIRY_FROM', 'website@drusmanpk.com');
+ *   ENQUIRY_TO=someone@example.com
+ *   ENQUIRY_FROM=website@drusmanpk.com
  */
 
 header('Content-Type: application/json');
@@ -21,11 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$cfg = __DIR__ . '/config.local.php';
-if (is_readable($cfg)) { require_once $cfg; }
+require_once __DIR__ . '/config.php';
 
-$to   = getenv('ENQUIRY_TO')   ?: (defined('ENQUIRY_TO')   ? ENQUIRY_TO   : '');
-$from = getenv('ENQUIRY_FROM') ?: (defined('ENQUIRY_FROM') ? ENQUIRY_FROM : 'website@drusmanpk.com');
+$to   = dr_usman_config('ENQUIRY_TO');
+$from = dr_usman_config('ENQUIRY_FROM', 'website@drusmanpk.com');
 
 if (!$to) {
     // Misconfigured server. Say nothing useful publicly; the form falls back

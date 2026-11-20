@@ -9,13 +9,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     exit;
 }
 
-// Credentials come from api/config.local.php (untracked, server-only) or the
-// environment. Never hard-code them here — this file is public on GitHub.
-$cfg = __DIR__ . '/config.local.php';
-if (is_readable($cfg)) { require_once $cfg; }
+// Credentials are server-only and untracked — see api/config.php. Never
+// hard-code them here; this file is public on GitHub.
+require_once __DIR__ . '/config.php';
 
-$token  = getenv('LONG_LIVED_TOKEN') ?: (defined('LONG_LIVED_TOKEN') ? LONG_LIVED_TOKEN : '');
-$userId = getenv('IG_USER_ID')       ?: (defined('IG_USER_ID')       ? IG_USER_ID       : '');
+$token  = dr_usman_config('LONG_LIVED_TOKEN');
+$userId = dr_usman_config('IG_USER_ID');
 
 if (!$token || !$userId) {
     http_response_code(500);

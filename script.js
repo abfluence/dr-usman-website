@@ -269,6 +269,25 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
     message   ? `\nMessage: ${message}`       : null,
   ].filter(Boolean).join('\n');
 
+  // Record the enquiry server-side FIRST. Previously the form only opened
+  // WhatsApp, so any patient who didn't press send there was lost with no
+  // trace. WhatsApp still opens either way — a failed post must never block
+  // the patient from reaching him.
+  var payload = {
+    name: name, phone: phone, email: email, procedure: procedure,
+    datetime: datetime, message: message,
+    website: (document.getElementById('fwebsite') || {}).value || '',
+    lang: document.documentElement.getAttribute('data-lang') || 'en'
+  };
+  try {
+    fetch('/api/enquiry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      keepalive: true            // survives the tab losing focus to WhatsApp
+    }).catch(function () { /* non-blocking by design */ });
+  } catch (err) { /* ditto */ }
+
   window.open(`https://wa.me/966504109169?text=${encodeURIComponent(lines)}`, '_blank');
 });
 
@@ -1129,4 +1148,104 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
     var rtl = document.documentElement.dir === 'rtl';
     step((dx < 0) !== rtl ? 1 : -1);
   }, { passive: true });
+})();
+
+/* ============================================================
+   META PIXEL — ad attribution + retargeting
+
+   Set PIXEL_ID below to the ID from Meta Events Manager. Until it is set,
+   nothing loads and no cookies are written, so the site ships safely
+   without it.
+
+   Loads only after the visitor accepts (see initConsent). A plastic-surgery
+   site attracts EU/UK traffic, and what someone browses here is health
+   data — firing a tracker before consent is the kind of thing that draws
+   a complaint. Flip CONSENT_REQUIRED to false to load it for everyone.
+============================================================ */
+var PIXEL_ID = '';          // e.g. '1234567890123456'
+var CONSENT_REQUIRED = true;
+
+(function initPixel() {
+  if (!PIXEL_ID) return;
+
+  var loaded = false;
+  function load() {
+    if (loaded) return;
+    loaded = true;
+    /* eslint-disable */
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    /* eslint-enable */
+    fbq('init', PIXEL_ID);
+    fbq('track', 'PageView');
+
+    // The conversions that actually matter here. A pageview says nothing
+    // about intent; these are the moments someone tries to reach him.
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        fbq('track', 'Contact', { method: 'whatsapp', placement: a.id || a.className || 'link' });
+      });
+    });
+    var payBtn = document.getElementById('payBtn');
+    if (payBtn) {
+      payBtn.addEventListener('click', function () {
+        fbq('track', 'InitiateCheckout', { content_name: 'Online consultation', value: 200, currency: 'SAR' });
+      });
+    }
+    var form = document.getElementById('contactForm');
+    if (form) {
+      form.addEventListener('submit', function () {
+        var proc = (document.getElementById('fprocedure') || {}).value || '';
+        fbq('track', 'Lead', { content_name: proc || 'General enquiry' });
+      });
+    }
+    document.querySelectorAll('.pac-item').forEach(function (item) {
+      item.addEventListener('click', function () {
+        var t = item.querySelector('.pac-title');
+        fbq('trackCustom', 'ViewProcedure', { procedure: t ? t.textContent.trim() : '' });
+      });
+    });
+  }
+
+  if (!CONSENT_REQUIRED) { load(); return; }
+  if (localStorage.getItem('dr-usman-consent') === 'yes') { load(); return; }
+  window.__drUsmanLoadPixel = load;
+})();
+
+/* ── COOKIE CONSENT ──────────────────────────────────────────
+   Only shown when there is actually a tracker to consent to.
+   Declining is one click and is remembered, same as accepting. */
+(function initConsent() {
+  if (!PIXEL_ID || !CONSENT_REQUIRED) return;
+  var stored = null;
+  try { stored = localStorage.getItem('dr-usman-consent'); } catch (e) { return; }
+  if (stored) return;
+
+  var t = (window.DR_USMAN_I18N || {})[document.documentElement.getAttribute('data-lang') || 'en'];
+  var c = (t && t.consent) || {};
+
+  var bar = document.createElement('div');
+  bar.className = 'consent-bar';
+  bar.setAttribute('role', 'dialog');
+  bar.setAttribute('aria-label', c.title || 'Cookies');
+  bar.innerHTML =
+    '<p class="consent-text">' + (c.text || 'We use cookies to measure how our ads perform. You can decline — the site works the same either way.') + '</p>' +
+    '<div class="consent-actions">' +
+      '<button type="button" class="consent-btn consent-no">'  + (c.decline || 'Decline') + '</button>' +
+      '<button type="button" class="consent-btn consent-yes">' + (c.accept  || 'Accept')  + '</button>' +
+    '</div>';
+  document.body.appendChild(bar);
+  requestAnimationFrame(function () { bar.classList.add('show'); });
+
+  function choose(val) {
+    try { localStorage.setItem('dr-usman-consent', val); } catch (e) { /* private mode */ }
+    bar.classList.remove('show');
+    setTimeout(function () { bar.remove(); }, 400);
+    if (val === 'yes' && window.__drUsmanLoadPixel) window.__drUsmanLoadPixel();
+  }
+  bar.querySelector('.consent-yes').addEventListener('click', function () { choose('yes'); });
+  bar.querySelector('.consent-no').addEventListener('click',  function () { choose('no');  });
 })();

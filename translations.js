@@ -52,6 +52,11 @@ window.DR_USMAN_I18N = {
       tag:'Transformations', title:'Before &amp; <em>After</em>', hint:'Drag to reveal',
       fAll:'All', fBody:'Body', fBreast:'Breast', fFace:'Face', fEyes:'Eyes', fNonSurg:'Non-Surgical',
     },
+    consent: {
+      title:'Cookies',
+      text:'We use cookies to measure how our ads perform. You can decline — the site works the same either way.',
+      accept:'Accept', decline:'Decline',
+    },
     gallery: {
       tag:'Gallery',
       title:'Beyond The <em>Clinic</em>',
@@ -167,6 +172,11 @@ window.DR_USMAN_I18N = {
     bna: { tierH:'اسحبي يميناً ويساراً', tierV:'اسحبي لأعلى ولأسفل',
       tag:'نتائج التحول', title:'قبل &amp; <em>بعد</em>', hint:'اسحبي للكشف',
       fAll:'الكل', fBody:'الجسم', fBreast:'الثدي', fFace:'الوجه', fEyes:'العيون', fNonSurg:'غير جراحي',
+    },
+    consent: {
+      title:'ملفات تعريف ارتباط',
+      text:'نستخدم ملفات الارتباط لقياس أداء إعلاناتنا. يمكنك الرفض — الموقع يعمل كما هو في الحالتين.',
+      accept:'موافق', decline:'رفض',
     },
     gallery: {
       tag:'المعرض',

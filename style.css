@@ -2756,3 +2756,42 @@ body, p, .about-bio,
 }
 /* Custom cursor must stay above the lightbox */
 html.gal-open #cursor { z-index: 10001; }
+
+/* Spam honeypot — off-screen rather than display:none, which some bots skip */
+.hp-field { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+
+/* --------------------------------
+   COOKIE CONSENT BAR
+-------------------------------- */
+.consent-bar {
+  position: fixed; left: 50%; bottom: 20px; z-index: 9997;
+  transform: translate(-50%, 140%);
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  width: min(760px, calc(100vw - 32px));
+  padding: 15px 20px;
+  background: rgba(14,14,22,.93);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+  transition: transform .45s var(--ease), opacity .45s;
+  opacity: 0;
+}
+.consent-bar.show { transform: translate(-50%, 0); opacity: 1; }
+.consent-text { flex: 1 1 320px; font-size: 13px; line-height: 1.55; color: var(--white-60); margin: 0; }
+.consent-actions { display: flex; gap: 10px; flex-shrink: 0; }
+.consent-btn {
+  padding: 9px 20px; border-radius: 999px; cursor: pointer;
+  font-family: var(--font-sans); font-size: 10px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,.18); background: transparent; color: var(--white-60);
+  transition: background .2s, border-color .2s, color .2s;
+}
+.consent-btn:hover { color: var(--white); border-color: rgba(255,255,255,.4); }
+.consent-yes { background: var(--gold-grad); border-color: transparent; color: #0a0a0f; }
+.consent-yes:hover { color: #0a0a0f; filter: brightness(1.08); }
+[data-theme="light"] .consent-bar { background: rgba(250,248,242,.96); }
+@media (max-width: 560px) {
+  .consent-bar { bottom: 0; width: 100%; border-left: 0; border-right: 0; border-bottom: 0; }
+  .consent-actions { width: 100%; }
+  .consent-btn { flex: 1; }
+}

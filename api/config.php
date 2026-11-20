@@ -37,15 +37,28 @@ if (!function_exists('dr_usman_config')) {
                 }
             }
 
-            // Legacy PHP config. A parse error here is catchable, so a broken
-            // file degrades to "credential missing" instead of killing the
-            // request with no message.
+            // Legacy PHP config, loaded defensively. Two hard rules, both
+            // learned from a real incident: a file that is not actually PHP
+            // got pasted here, and every byte outside <?php was echoed
+            // straight into the API response — which published the access
+            // token to anyone who called the endpoint.
             $legacy = __DIR__ . '/config.local.php';
             if (is_readable($legacy)) {
-                try {
-                    require_once $legacy;
-                } catch (\Throwable $e) {
-                    error_log('config.local.php could not be parsed: ' . $e->getMessage());
+                $head = (string)@file_get_contents($legacy, false, null, 0, 16);
+                if (strpos(ltrim($head), '<?php') !== 0) {
+                    // Not PHP. Including it would print its contents.
+                    error_log('config.local.php is not a PHP file; refusing to include it');
+                } else {
+                    // Even valid PHP can emit stray output (a blank line before
+                    // <?php). Swallow anything it prints so a credential can
+                    // never reach the response body.
+                    ob_start();
+                    try {
+                        require_once $legacy;
+                    } catch (\Throwable $e) {
+                        error_log('config.local.php could not be parsed: ' . $e->getMessage());
+                    }
+                    ob_end_clean();
                 }
             }
         }

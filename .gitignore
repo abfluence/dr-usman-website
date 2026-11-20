@@ -4,3 +4,7 @@ assets/ig-source/
 
 # Server-only credentials (Instagram Graph API token)
 api/config.local.php
+
+# Abandoned Next.js prototype — kept locally, never deployed.
+# Full history is in git up to commit 9bdcebd.
+dr-usman-next/

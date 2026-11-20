@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Not part of the public site (also 404'd in .htaccess)
+Disallow: /api/
+Disallow: /dr-usman-next/
+Disallow: /assets/ig-source/
+
+Sitemap: https://drusmanpk.com/sitemap.xml

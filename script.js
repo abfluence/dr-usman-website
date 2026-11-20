@@ -1162,7 +1162,7 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
    data — firing a tracker before consent is the kind of thing that draws
    a complaint. Flip CONSENT_REQUIRED to false to load it for everyone.
 ============================================================ */
-var PIXEL_ID = '';          // e.g. '1234567890123456'
+var PIXEL_ID = '1633355377666780';   // Dr. Usman Website Pixel
 var CONSENT_REQUIRED = true;
 
 (function initPixel() {
@@ -1184,29 +1184,29 @@ var CONSENT_REQUIRED = true;
 
     // The conversions that actually matter here. A pageview says nothing
     // about intent; these are the moments someone tries to reach him.
+    // NOTE: never attach the procedure name to an event. Meta's own terms
+    // forbid sending data "based on, directly or indirectly, health
+    // information", and "this visitor looked at Rhinoplasty" is exactly
+    // that. It is also how ad accounts in this niche get banned. The
+    // conversion signal is kept; the diagnosis-shaped detail is not.
     document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
       a.addEventListener('click', function () {
-        fbq('track', 'Contact', { method: 'whatsapp', placement: a.id || a.className || 'link' });
+        fbq('track', 'Contact', { method: 'whatsapp' });
       });
     });
     var payBtn = document.getElementById('payBtn');
     if (payBtn) {
       payBtn.addEventListener('click', function () {
-        fbq('track', 'InitiateCheckout', { content_name: 'Online consultation', value: 200, currency: 'SAR' });
+        fbq('track', 'InitiateCheckout', { value: 200, currency: 'SAR' });
       });
     }
     var form = document.getElementById('contactForm');
     if (form) {
-      form.addEventListener('submit', function () {
-        var proc = (document.getElementById('fprocedure') || {}).value || '';
-        fbq('track', 'Lead', { content_name: proc || 'General enquiry' });
-      });
+      form.addEventListener('submit', function () { fbq('track', 'Lead'); });
     }
+    // Fires on any procedure open, without saying which one.
     document.querySelectorAll('.pac-item').forEach(function (item) {
-      item.addEventListener('click', function () {
-        var t = item.querySelector('.pac-title');
-        fbq('trackCustom', 'ViewProcedure', { procedure: t ? t.textContent.trim() : '' });
-      });
+      item.addEventListener('click', function () { fbq('track', 'ViewContent'); });
     });
   }
 

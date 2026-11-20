@@ -54,10 +54,10 @@
   <!-- Lenis smooth scroll -->
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
 
-  <link rel="stylesheet" href="/style.css?v=27"/>
+  <link rel="stylesheet" href="/style.css?v=28"/>
   <!-- Prevent flash of wrong theme/lang -->
   <script>(function(){var t=localStorage.getItem('dr-usman-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');/* Language is fixed by the URL here, not by localStorage — this page IS the Arabic one. */document.documentElement.setAttribute('data-lang','ar');document.documentElement.setAttribute('dir','rtl');document.documentElement.setAttribute('lang','ar');})();</script>
-  <script src="/translations.js?v=27"></script>
+  <script src="/translations.js?v=28"></script>
 
   <script type="application/ld+json">
   {
@@ -79,6 +79,14 @@
           "addressRegion": "Eastern Province",
           "addressCountry": "SA"
         },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+            "opens": "13:00",
+            "closes": "21:00"
+          }
+        ],
         "areaServed": [
           { "@type": "City", "name": "Al Khobar" },
           { "@type": "City", "name": "Dammam" }
@@ -1305,7 +1313,7 @@
             <div class="ci-icon">🕐</div>
             <div>
               <div class="ci-label" data-i18n="contact.lbl3">ساعات الدوام</div>
-              <div class="ci-val" data-i18n-html="contact.val3">السبت–الأربعاء: 5 م – 9 م<br>الخميس: 3 م – 6 م<br>الجمعة: إجازة</div>
+              <div class="ci-val" data-i18n-html="contact.val3">السبت–الخميس: 1 م – 9 م<br>الجمعة: إجازة</div>
             </div>
           </div>
           <div class="contact-item">
@@ -1465,7 +1473,7 @@
   <span data-i18n="wa">احجزي الآن</span>
 </a>
 
-<script src="/script.js?v=27"></script>
+<script src="/script.js?v=28"></script>
 
 <!-- Liquid Glass SVG Filter — DO NOT REMOVE -->
 <svg id="liquid-glass-filter" style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;" aria-hidden="true">

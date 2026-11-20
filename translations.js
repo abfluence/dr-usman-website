@@ -63,7 +63,8 @@ window.DR_USMAN_I18N = {
       hint:'Tap to view',
       personal:'Personal', professional:'Professional',
       c: { paris:'Paris', umrah:'Umrah', makkah:'Makkah', sea:'At sea', flight:'In flight', travel:'Travels', friends:'With friends',
-           consult:'Consultation', award:'Award', team:'With the team', event:'Industry event', clinic:'At the clinic', conference:'Conference' },
+           consult:'Consultation', award:'Award', team:'With the team', event:'Industry event', clinic:'At the clinic', conference:'Conference',
+           prep:'Scrubbing in', awardv:'Receiving an award', theatre:'In theatre', clinicv:'At the clinic' },
     },
     igfeed: {
       tag:'Instagram',
@@ -184,7 +185,8 @@ window.DR_USMAN_I18N = {
       hint:'اضغطي للعرض',
       personal:'شخصي', professional:'مهني',
       c: { paris:'باريس', umrah:'العمرة', makkah:'مكة المكرمة', sea:'في البحر', flight:'على متن الرحلة', travel:'في السفر', friends:'مع الأصدقاء',
-           consult:'الاستشارة', award:'تكريم', team:'مع الفريق', event:'فعالية مهنية', clinic:'في العيادة', conference:'مؤتمر طبي' },
+           consult:'الاستشارة', award:'تكريم', team:'مع الفريق', event:'فعالية مهنية', clinic:'في العيادة', conference:'مؤتمر طبي',
+           prep:'الاستعداد للجراحة', awardv:'تسلم الجائزة', theatre:'في غرفة العمليات', clinicv:'في العيادة' },
     },
     igfeed: {
       tag:'إنستغرام',

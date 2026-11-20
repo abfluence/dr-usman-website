@@ -116,8 +116,8 @@ html = html.replace(
 );
 
 // ── 6. head: Arabic metadata, canonical and hreflang ─────────────────
-const AR_TITLE = 'د. عثمان علي لياقت — استشاري جراحة التجميل والترميم | الخبر والدمام';
-const AR_DESC  = 'د. عثمان علي لياقت، استشاري جراحة التجميل والترميم في الخبر والدمام بالمملكة العربية السعودية. أكثر من ٩ سنوات خبرة و‏٦٠٠٠+ عملية.';
+const AR_TITLE = 'د. عثمان علي لياقت — جراحة التجميل والترميم | الخبر والدمام';
+const AR_DESC  = 'د. عثمان علي لياقت — جراحة التجميل والترميم في الخبر والدمام بالمملكة العربية السعودية. أكثر من ٩ سنوات خبرة و‏٦٠٠٠+ عملية.';
 
 html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(AR_TITLE)}</title>`);
 html = html.replace(/(<meta name="description" content=")[^"]*(")/, `$1${escAttr(AR_DESC)}$2`);

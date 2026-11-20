@@ -517,7 +517,7 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
     document.documentElement.setAttribute('lang', lang === 'ar' ? 'ar' : 'en');
-    localStorage.setItem('dr-usman-lang', lang);
+    /* Deliberately not persisted: the URL is the single source of truth. */
 
     /* ── toggle indicator ── */
     btn.querySelectorAll('.lt-opt').forEach(function (opt) {
@@ -580,11 +580,8 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
   /* ── expose globally so click handler always has access ── */
   window.applyLang = applyLang;
 
-  /* ── click to toggle ── */
-  btn.addEventListener('click', function () {
-    var next = document.documentElement.getAttribute('data-lang') === 'ar' ? 'en' : 'ar';
-    window.applyLang(next);
-  });
+  /* The toggle is an <a> to the other language's URL — let it navigate.
+     Swapping text in place would leave the URL lying about the content. */
 
   /* ── init on load (deferred so calLocaleRefresh is ready) ── */
   var current = document.documentElement.getAttribute('data-lang') || 'en';
@@ -831,27 +828,27 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
   if (!gallery) return;
 
   var images = [
-    { url: 'assets/gallery/sm/dr-01.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-02.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-03.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-04.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-05.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-07.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-08.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-09.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-10.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-11.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-12.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-13.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-14.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-15.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-16.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-17.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-18.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-19.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-20.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-21.jpg', title: 'Dr. Usman Ali Liaqat' },
-    { url: 'assets/gallery/sm/dr-22.jpg', title: 'Dr. Usman Ali Liaqat' }
+    { url: '/assets/gallery/sm/dr-01.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-02.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-03.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-04.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-05.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-07.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-08.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-09.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-10.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-11.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-12.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-13.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-14.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-15.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-16.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-17.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-18.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-19.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-20.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-21.jpg', title: 'Dr. Usman Ali Liaqat' },
+    { url: '/assets/gallery/sm/dr-22.jpg', title: 'Dr. Usman Ali Liaqat' }
   ];
 
   var SPEED = 750;

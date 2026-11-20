@@ -7,3 +7,19 @@ Disallow: /dr-usman-next/
 Disallow: /assets/ig-source/
 
 Sitemap: https://drusmanpk.com/sitemap.xml
+
+# AI answer engines — named explicitly so a future edit to the wildcard
+# above cannot silently remove the site from ChatGPT, Perplexity or
+# Google's AI Overviews without someone noticing this block.
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /

@@ -5,7 +5,7 @@
 window.DR_USMAN_I18N = {
 
   en: {
-    nav: { about:'About', procedures:'Procedures', reviews:'Reviews', gallery:'Gallery', contact:'Contact', cta:'Book Consultation' },
+    nav: { about:'About', procedures:'Procedures', reviews:'Reviews', gallery:'Gallery', contact:'Contact', logoTitle:'Plastic & Reconstructive Surgeon', cta:'Book Consultation' },
     menu: { location:'Al Khobar &amp; Dammam · Saudi Arabia' },
     hero: {
       tag:'Plastic & Reconstructive Surgeon',
@@ -49,6 +49,8 @@ window.DR_USMAN_I18N = {
       calPickTime:'— pick a time',
     },
     bna: { tierH:'Drag left and right', tierV:'Drag up and down',
+      before:'Before', after:'After',
+      l: { fourDLiposculpture:'4D Liposculpture', armsLiposculpture:'Arms Liposculpture', brazilianButtLift:'Brazilian Butt Lift', breastAugmentation:'Breast Augmentation', breastLift:'Breast Lift', doubleChinLiposuction:'Double Chin Liposuction', facelift:'Facelift', lipFiller:'Lip Filler', lowerBlepharoplasty:'Lower Blepharoplasty', rhinoplasty:'Rhinoplasty', tummyTuck:'Tummy Tuck', upperBlepharoplasty:'Upper Blepharoplasty' },
       tag:'Transformations', title:'Before &amp; <em>After</em>', hint:'Drag to reveal',
       fAll:'All', fBody:'Body', fBreast:'Breast', fFace:'Face', fEyes:'Eyes', fNonSurg:'Non-Surgical',
     },
@@ -127,7 +129,7 @@ window.DR_USMAN_I18N = {
   },
 
   ar: {
-    nav: { about:'عن الدكتور', procedures:'الإجراءات', reviews:'آراء المرضى', gallery:'المعرض', contact:'تواصلي معنا', cta:'احجزي استشارتك' },
+    nav: { about:'عن الدكتور', procedures:'الإجراءات', reviews:'آراء المرضى', gallery:'المعرض', logoTitle:'استشاري جراحة التجميل والترميم', contact:'تواصلي معنا', cta:'احجزي استشارتك' },
     menu: { location:'الخبر والدمام · المملكة العربية السعودية' },
     hero: {
       tag:'جراح التجميل وإعادة البناء',
@@ -171,6 +173,8 @@ window.DR_USMAN_I18N = {
       calPickTime:'— اختاري وقتًا',
     },
     bna: { tierH:'اسحبي يميناً ويساراً', tierV:'اسحبي لأعلى ولأسفل',
+      before:'قبل', after:'بعد',
+      l: { fourDLiposculpture:'نحت الجسم رباعي الأبعاد', armsLiposculpture:'نحت الذراعين', brazilianButtLift:'حقن المؤخرة البرازيلي', breastAugmentation:'تكبير الثدي', breastLift:'شد الثدي', doubleChinLiposuction:'شفط دهون الذقن المزدوج', facelift:'شد الوجه', lipFiller:'فيلر الشفايف', lowerBlepharoplasty:'شد الجفن السفلي', rhinoplasty:'تجميل الأنف', tummyTuck:'شد البطن', upperBlepharoplasty:'شد الجفن العلوي' },
       tag:'نتائج التحول', title:'قبل &amp; <em>بعد</em>', hint:'اسحبي للكشف',
       fAll:'الكل', fBody:'الجسم', fBreast:'الثدي', fFace:'الوجه', fEyes:'العيون', fNonSurg:'غير جراحي',
     },

@@ -2795,3 +2795,7 @@ html.gal-open #cursor { z-index: 10001; }
   .consent-actions { width: 100%; }
   .consent-btn { flex: 1; }
 }
+
+/* The language switch is an <a> to the other language's URL, not a button,
+   so crawlers have a real route between /ar/ and /. Keep it visually identical. */
+a.lang-toggle, a.lang-toggle:hover { text-decoration: none; color: inherit; }
